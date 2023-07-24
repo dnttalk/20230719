@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chessboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel='stylesheet' href='/assets/css/second.css'>
+</head>
+
+<body>
+    <div class="container text-center secondpage-layout">
+        <div class="row mt-5 mb-5">
+            <h1>Sample Number: <input type="number" max="24" min="1" value="" id="sampleNumberInput"></h1>
+            <span id="sampleNumberDisplay"></span>
+        </div>
+        <div id="btn-login" class="ShowUser">
+            User:
+            <br>
+            Cajobe
+        </div>
+        <div class="row">
+            <table class="demo">
+                <thead>
+                    <tr>
+                        <th rowspan="4">
+                            <%= "&emsp;" .repeat(20) %>
+                        </th>
+                        <th>Header 5</th>
+                        <th>Header 6</th>
+                        <th>Header 7</th>
+                        <th>Header 8</th>
+                        <th>Header 9</th>
+                        <th>Header 10</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let i=0; i < 8; i++) { %>
+                        <tr>
+                            <td rowspan="8">
+                                <% for (let j=0; j < 5; j++) { %>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <input type="checkbox" id="cbtest" />
+                                            <label for="cbtest" class="check-box"></label>
+                                            <button type="button" class="scircle btn-primary border-5">PCR Mix
+                                                <%= j + 1 %>
+                                            </button>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="checkbox" id="cbtest" />
+                                            <label for="cbtest" class="check-box"></label>
+                                            <button type="button" class="scircle btn-primary border-5">Magnetic
+                                                beads</button>
+                                        </div>
+                                    </div>
+                                    <% } %>
+                            </td>
+                            <td>Sample Name</td>
+                            <% for (let k=0; k < 5; k++) { %>
+                                <td>&nbsp;</td>
+                                <% } %>
+                                    <td>Index Name</td>
+                                    <% for (let k=0; k < 5; k++) { %>
+                                        <td>&nbsp;</td>
+                                        <% } %>
+                        </tr>
+                        <% for (let l=0; l < 7; l++) { %>
+                            <tr>
+                                <% for (let m=0; m < 12; m++) { %>
+                                    <td>&nbsp;</td>
+                                    <% } %>
+                            </tr>
+                            <% } %>
+                                <% } %>
+                </tbody>
+            </table>
+        </div>
+        <div class="row mt-5 justify-content-between">
+            <div class="col-2">
+                <a href="/"><button type="button" class="prevPage btn-primary border-5">prevPage</button></a>
+            </div>
+            <div class="col-2">
+                <a href="/third"><button type="button" class="nextPage btn-primary border-5">nextPage</button></a>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/secondPage.js"></script>
+</body>
+
+</html>

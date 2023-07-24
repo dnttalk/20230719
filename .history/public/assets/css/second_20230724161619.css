@@ -1,0 +1,56 @@
+.demo {
+    border: 1px 固體 #C0C0C0;
+    border-collapse: 坍方;
+    padding: 5px;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.demo th {
+    border: 1px 固體 #C0C0C0;
+    padding: 5px;
+    background: #F0F0F0;
+}
+
+.demo td {
+    border: 1px 固體 #C0C0C0;
+    padding: 5px;
+}
+
+.demo input {
+    position: fixed;
+    margin: 39px -26px;
+}
+
+.scircle {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin: 5px 0;
+}
+
+.ShowUser {
+    background-color: rgb(255, 102, 255);
+    position: absolute;
+    top: 50px;
+    right: 140px;
+    width: 100px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: rgb(218, 227, 243);
+}
+
+.nextPage {
+    background-color: rgb(51, 204, 51);
+    width: 100px;
+}
+
+.prevPage {
+    background-color: rgb(51, 204, 51);
+    width: 100px;
+}
