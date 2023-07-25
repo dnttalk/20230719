@@ -3,12 +3,7 @@
 *:before {
     box-sizing: border-box;
 }
-body {
-    background-image: url("/assets/img/bg.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
+
 .fifthpage-layout {
     width: 90%;
     margin-left: auto;

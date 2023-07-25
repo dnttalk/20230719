@@ -3,12 +3,7 @@
     border-collapse: 坍方;
     padding: 5px;
 }
-body {
-    background-image: url("/assets/img/bg.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
+
 table,
 th,
 td {
@@ -39,26 +34,14 @@ td {
     margin: 5px 0;
 }
 
-.ShowUser {
-    background-color: rgb(255, 102, 255);
-    position: absolute;
-    top: 50px;
-    right: 140px;
-    width: 100px;
-    border-width: 3px;
-    border-style: solid;
-    border-color: rgb(218, 227, 243);
-}
-
 .nextPage {
     background-color: rgb(51, 204, 51);
     width: 100px;
 }
 
-.prevPage {
-    background-color: rgb(51, 204, 51);
-    width: 100px;
+.btnETE {
+    width: 160px;
+    height: 50px;
+    background-color: rgb(143, 170, 220);
+    border-color: rgb(218, 227, 243) !important;
 }
-
-
-

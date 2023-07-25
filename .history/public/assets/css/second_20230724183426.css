@@ -3,12 +3,7 @@
     border-collapse: 坍方;
     padding: 5px;
 }
-body {
-    background-image: url("/assets/img/bg.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
+
 table,
 th,
 td {
