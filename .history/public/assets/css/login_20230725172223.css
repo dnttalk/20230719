@@ -86,7 +86,7 @@
 
 * {
     letter-spacing: 2px;
-    background-image: url("./img/bg.jpg");
+    background-image: "./img/";
 }
 
 html,
