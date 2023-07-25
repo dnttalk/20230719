@@ -40,3 +40,23 @@ sampleNumberInput.addEventListener("input", function () {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const sampleNumberInput = document.getElementById("sampleNumberInput");
+    const sampleNameInputs = document.querySelectorAll(".sample-name-input");
+
+    sampleNumberInput.addEventListener("input", function (event) {
+        const sampleNumber = parseInt(event.target.value);
+
+        // Disable extra sample name inputs
+        sampleNameInputs.forEach((input, index) => {
+            if (index >= sampleNumber) {
+                input.value = "";
+                input.disabled = true;
+                input.classList.add("disabled-input");
+            } else {
+                input.disabled = false;
+                input.classList.remove("disabled-input");
+            }
+        });
+    });
+});
