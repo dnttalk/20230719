@@ -10,6 +10,6 @@ const client = net.connect(PORT, HOST, () => {
   client.write(buffer);
 });
 
-// client.on('close', () => {
-//   console.log('連線關閉');
-// });
+client.on('close', () => {
+  console.log('連線關閉');
+});

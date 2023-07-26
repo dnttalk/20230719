@@ -17,6 +17,6 @@ const client = net.connect(PORT, HOST, () => {
   setTimeout(sendDelayedData, 1000); // 延遲 1 秒後發送第二組數據
 });
 
-// client.on('close', () => {
-//   console.log('連線關閉');
-// });
+client.on('close', () => {
+  console.log('連線關閉');
+});
