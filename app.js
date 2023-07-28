@@ -6,14 +6,14 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const port = 3000;
 const index = require('./routes/index');
+const app = express();
 // 20230718 修改 ==========================
 // const users = require('./routes/users');
 // const first = require('./routes/first');
+// const ejs = require('ejs');
+// app.engine('html', ejs.__express);
 // 20230718 修改 ==========================
-const ejs = require('ejs');
-const app = express();
 app.use(cors());
-app.engine('html', ejs.__express);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs')
 app.use(logger('dev'));
@@ -80,7 +80,7 @@ app.use(function (err, req, res, next) {
 
 module.exports = app;
 // 啟動服務器
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}/`);
-});
+// app.listen(port, () => {
+//     console.log(`Server running at http://localhost:${port}/`);
+// });
 
