@@ -15,8 +15,12 @@ let checkUser = function () {
             document.cookie = "user=" + user + ";" + expires + ";path=/";
             const cookieValue = document.cookie;
             if (cookieValue.match('user=')) {
-                let username = cookieValue.replace('user=', '')
-                console.log(username)
+                // let username = cookieValue.replace('user=', '')
+                let username = cookieValue.split('user=');
+                if (username.length === 2) {
+                    username = username[1]
+                }
+
                 $('#btn-login').text('User:' + username)
                 $('#btn-login').prop('disabled', true)
             } else {
@@ -25,8 +29,10 @@ let checkUser = function () {
         } else {
             const cookieValue = document.cookie;
             if (cookieValue.match('user=')) {
-                let username = cookieValue.replace('user=', '')
-                console.log(username)
+                let username = cookieValue.split('user=');
+                if (username.length === 2) {
+                    username = username[1]
+                }
                 $('#btn-login').text('User:' + username)
                 $('#btn-login').prop('disabled', true)
             } else {
@@ -37,11 +43,15 @@ let checkUser = function () {
         console.log(2)
         const cookieValue = document.cookie;
         if (cookieValue.match('user=')) {
-            let username = cookieValue.replace('user=', '')
-            console.log(username)
+            let username = cookieValue.split('user=');
+            if (username.length === 2) {
+                username = username[1]
+            }
             $('#btn-login').text('User:' + username)
             $('#btn-login').prop('disabled', true)
         } else {
+            $('#btn-login').text('User:' + '沒有登入')
+            // $('#btn-login').prop('disabled', true)
             console.log('沒有登入')
         }
     }

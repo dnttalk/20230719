@@ -1,14 +1,10 @@
-.demo {
-    border: 1px 固體 #C0C0C0;
-    border-collapse: 坍方;
-    padding: 5px;
-}
 body {
     background-image: url("/assets/img/bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
 table,
 th,
 td {
@@ -16,20 +12,9 @@ td {
     border-collapse: collapse;
 }
 
-.demo th {
-    border: 1px 固體 #C0C0C0;
-    padding: 5px;
-    background: #F0F0F0;
-}
-
-.demo td {
-    border: 1px 固體 #C0C0C0;
-    padding: 5px;
-}
-
-.demo input {
+.cbtest {
     position: fixed;
-    margin: 39px -26px;
+    margin: 39px -17px;
 }
 
 .scircle {
@@ -60,5 +45,8 @@ td {
     width: 100px;
 }
 
-
-
+.select1,
+.select2,
+#customText {
+    width: 100%;
+}

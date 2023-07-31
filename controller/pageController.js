@@ -5,7 +5,11 @@ let firstPage = async (req, res) => {
 }
 //第二層
 let secondPage = async (req, res) => {
-    res.render('secondPage')
+    if (req.query.id == 'leukemia' || req.query.id == 'mpn' || req.query.id == 'tp53') {
+        res.render('secondPage', { id: req.query.id })
+    } else {
+        res.redirect('/');
+    }
 }
 //第三層(勾選層)
 let thirdPage = async (req, res) => {

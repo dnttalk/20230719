@@ -4,9 +4,10 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
 .fbtn {
     width: 170px;
-    font-size: 26px;
+    font-size: 23px;
     color: black;
     font-weight: blod;
     white-space: nowrap;

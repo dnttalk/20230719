@@ -48,6 +48,8 @@ a {
     width: 300px;
     font-weight: bold;
     font-size: 26px;
+    margin-left: 830px;
+    margin-top: 22px;
 }
 
 
@@ -277,51 +279,6 @@ a {
     scale: 2;
 }
 
-.frame .element-30 {
-    height: 33px;
-    left: 682px;
-    position: absolute;
-    top: 174px;
-    width: 33px;
-    scale: 2;
-}
-
-.frame .element-31 {
-    height: 44px;
-    left: 579px;
-    position: absolute;
-    top: 7px;
-    width: 35px;
-    scale: 2;
-}
-
-.frame .element-32 {
-    height: 46px;
-    left: 723px;
-    position: absolute;
-    top: 344px;
-    width: 46px;
-    scale: 2;
-}
-
-.frame .element-33 {
-    height: 30px;
-    left: 687px;
-    position: absolute;
-    top: 533px;
-    width: 29px;
-    scale: 2;
-}
-
-.frame .element-34 {
-    height: 31px;
-    left: 590px;
-    position: absolute;
-    top: 690px;
-    width: 21px;
-    scale: 2;
-}
-
 .overlap-2 {
     position: relative;
 }
@@ -384,7 +341,7 @@ a {
     height: 62px;
     position: relative;
     left: 80px;
-    margin: 114px 0px;
+    margin: 140px 0px;
     scale: 1.2;
     cursor: pointer;
 }
