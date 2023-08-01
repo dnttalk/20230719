@@ -24,7 +24,7 @@ let checkUser = function () {
                 $('#btn-login').text('User:' + username)
                 $('#btn-login').prop('disabled', true)
             } else {
-                console.log('沒有登入')
+                location.href = '/login'
             }
         } else {
             const cookieValue = document.cookie;
@@ -36,7 +36,7 @@ let checkUser = function () {
                 $('#btn-login').text('User:' + username)
                 $('#btn-login').prop('disabled', true)
             } else {
-                console.log('沒有登入')
+                location.href = '/login'
             }
         }
     } else {
@@ -50,9 +50,7 @@ let checkUser = function () {
             $('#btn-login').text('User:' + username)
             $('#btn-login').prop('disabled', true)
         } else {
-            $('#btn-login').text('User:' + '沒有登入')
-            // $('#btn-login').prop('disabled', true)
-            console.log('沒有登入')
+            location.href = '/login'
         }
     }
 }

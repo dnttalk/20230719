@@ -13,20 +13,28 @@
 <body>
     <div class="container text-center secondpage-layout">
         <div class="row mt-5 mb-5">
-            <% let arr1 = [] %>
-            <% let arr2 = [] %>
+            <script>
+                let arr1 = [];
+                let arr2 = [];
+            </script>
             <% if(id=='mpn'){ %>
-            <% arr1 = ['S502 Primer','S503 Primer','S505 Primer','S506 Primer','S507 Primer','S508 Primer','S510 Primer','S511 Primer'] %>
-            <% arr2 = ['N701 Primer','N702 Primer','N703 Primer','N704 Primer','N705 Primer','N706 Primer','N707 Primer','N710 Primer','N711 Primer','N712 Primer','N714 Primer','N715 Primer'] %>
-            <h1>Sample Number: <input type="number" max="8" min="1" value="1" id="sampleNumberInput"></h1>
+            <script>
+                arr1 = ['S502 Primer', 'S503 Primer', 'S505 Primer', 'S506 Primer', 'S507 Primer', 'S508 Primer', 'S510 Primer', 'S511 Primer']
+                arr2 = ['N701 Primer', 'N702 Primer', 'N703 Primer', 'N704 Primer', 'N705 Primer', 'N706 Primer', 'N707 Primer', 'N710 Primer', 'N711 Primer', 'N712 Primer', 'N714 Primer', 'N715 Primer']
+            </script>
+            <h1>Sample Number: <input type="number" max="8" min="1" value="1" id="sampleNumberInput" oninput="if(value<=0)value=1;if(value>8)value=8;"></h1>
             <% }else if(id=='leukemia'){ %>
-            <% arr1 = ['S505 Primer','S506 Primer','S507 Primer','S508 Primer'] %>
-            <% arr2 = ['i701 Primer','i707 Primer','i708 Primer','i709 Primer','i710 Primer','i711 Primer','i712 Primer'] %>
-            <h1>Sample Number: <input type="number" max="22" min="1" value="1" id="sampleNumberInput"></h1>
+            <script>
+                arr1 = ['S505 Primer', 'S506 Primer', 'S507 Primer', 'S508 Primer']
+                arr2 = ['i701 Primer', 'i707 Primer', 'i708 Primer', 'i709 Primer', 'i710 Primer', 'i711 Primer', 'i712 Primer']
+            </script>
+            <h1>Sample Number: <input type="number" max="22" min="1" value="1" id="sampleNumberInput" oninput="if(value<=0)value=1;if(value>22)value=22;"></h1>
             <% }else{ %>
-            <% arr1 = ['S502 Primer','S503 Primer','S505 Primer','S506 Primer','S507 Primer','S508 Primer','S510 Primer','S511 Primer'] %>
-            <% arr2 = ['N716 Primer','N718 Primer','N719 Primer','N720 Primer','N721 Primer','N722 Primer','N723 Primer','N724 Primer','N726 Primer','N727 Primer','N728 Primer','N729 Primer'] %>
-            <h1>Sample Number: <input type="number" max="24" min="1" value="1" id="sampleNumberInput"></h1>
+            <script>
+                arr1 = ['S502 Primer', 'S503 Primer', 'S505 Primer', 'S506 Primer', 'S507 Primer', 'S508 Primer', 'S510 Primer', 'S511 Primer']
+                arr2 = ['N716 Primer', 'N718 Primer', 'N719 Primer', 'N720 Primer', 'N721 Primer', 'N722 Primer', 'N723 Primer', 'N724 Primer', 'N726 Primer', 'N727 Primer', 'N728 Primer', 'N729 Primer']
+            </script>
+            <h1>Sample Number: <input type="number" max="24" min="1" value="1" id="sampleNumberInput" oninput="if(value<=0)value=1;if(value>24)value=24;"></h1>
             <% } %>
             <span id="sampleNumberDisplay"></span>
         </div>
@@ -81,54 +89,117 @@
                                 </div>
                             </div>
                         </td>
-                        <% for (let i=0; i < 6; i++) { %>
-                        <% if(i>=3 ) { %>
-                        <td>
-                            <select class="select1" disabled>
-                                <% for(let k=0;k<arr1.length;k++){ %>
-                                <option value="<%= arr1[k] %>"><%= arr1[k] %></option>
-                                <% } %>
-
-                            </select>
-                            <select class="select2" disabled>
-                                <% for(let k=0;k<arr2.length;k++){ %>
-                                <option value="<%= arr2[k] %>"><%= arr2[k] %></option>
-                                <% } %>
-                            </select>
+                        <td class="tdWidth">
+                            <input id="tdFirst_1" type="text" class="customText" maxlength="15" disabled>
                         </td>
-                        <% }else{ %>
-                        <td>
-                            <input type="text" class="customText" disabled>
+                        <td class="tdWidth">
+                            <input id="tdFirst_9" type="text" class="customText" maxlength="15" disabled>
                         </td>
-                        <% } %>
-                        <% } %>
+                        <td class="tdWidth">
+                            <input id="tdFirst_17" type="text" class="customText" maxlength="15" disabled>
+                        </td>
+                        <td id="tdSecond_1" class="tdWidth"></td>
+                        <td id="tdSecond_9" class="tdWidth"></td>
+                        <td id="tdSecond_17" class="tdWidth"></td>
                     </tr>
-
-                    <% for (let i=0; i < 7; i++) { %>
                     <tr>
-                        <% for (let j=0; j < 6; j++) { %>
-                        <% if(j>=3 ) { %>
-                        <td>
-                            <select class="select1" disabled>
-                                <% for(let k=0;k<arr1.length;k++){ %>
-                                <option value="<%= arr1[k] %>"><%= arr1[k] %></option>
-                                <% } %>
-
-                            </select>
-                            <select class="select2" disabled>
-                                <% for(let k=0;k<arr2.length;k++){ %>
-                                <option value="<%= arr2[k] %>"><%= arr2[k] %></option>
-                                <% } %>
-                            </select>
+                        <td class="tdWidth">
+                            <input id="tdFirst_2" type="text" class="customText" maxlength="15" disabled>
                         </td>
-                        <% }else{ %>
-                        <td>
-                            <input type="text" class="customText" disabled>
+                        <td class="tdWidth">
+                            <input id="tdFirst_10" type="text" class="customText" maxlength="15" disabled>
                         </td>
-                        <% } %>
-                        <% } %>
+                        <td class="tdWidth">
+                            <input id="tdFirst_18" type="text" class="customText" maxlength="15" disabled>
+                        </td>
+                        <td id="tdSecond_2" class="tdWidth"></td>
+                        <td id="tdSecond_10" class="tdWidth"></td>
+                        <td id="tdSecond_18" class="tdWidth"></td>
                     </tr>
-                    <% } %>
+                    <tr>
+                        <td class="tdWidth">
+                            <input id="tdFirst_3" type="text" class="customText" maxlength="15" disabled>
+                        </td>
+                        <td class="tdWidth">
+                            <input id="tdFirst_11" type="text" class="customText" maxlength="15" disabled>
+                        </td>
+                        <td class="tdWidth">
+                            <input id="tdFirst_19" type="text" class="customText" maxlength="15" disabled>
+                        </td>
+                        <td id="tdSecond_3" class="tdWidth"></td>
+                        <td id="tdSecond_11" class="tdWidth"></td>
+                        <td id="tdSecond_19" class="tdWidth"></td>
+                    </tr>
+                    <tr>
+                        <td class="tdWidth">
+                            <input id="tdFirst_4" type="text" class="customText" maxlength="15" disabled>
+                        </td>
+                        <td class="tdWidth">
+                            <input id="tdFirst_12" type="text" class="customText" maxlength="15" disabled>
+                        </td>
+                        <td class="tdWidth">
+                            <input id="tdFirst_20" type="text" class="customText" maxlength="15" disabled>
+                        </td>
+                        <td id="tdSecond_4" class="tdWidth"></td>
+                        <td id="tdSecond_12" class="tdWidth"></td>
+                        <td id="tdSecond_20" class="tdWidth"></td>
+                    </tr>
+                    <tr>
+                        <td class="tdWidth">
+                            <input id="tdFirst_5" type="text" class="customText" maxlength="15" disabled>
+                        </td>
+                        <td class="tdWidth">
+                            <input id="tdFirst_13" type="text" class="customText" maxlength="15" disabled>
+                        </td>
+                        <td class="tdWidth">
+                            <input id="tdFirst_21" type="text" class="customText" maxlength="15" disabled>
+                        </td>
+                        <td id="tdSecond_5" class="tdWidth"></td>
+                        <td id="tdSecond_13" class="tdWidth"></td>
+                        <td id="tdSecond_21" class="tdWidth"></td>
+                    </tr>
+                    <tr>
+                        <td class="tdWidth">
+                            <input id="tdFirst_6" type="text" class="customText" maxlength="15" disabled>
+                        </td>
+                        <td class="tdWidth">
+                            <input id="tdFirst_14" type="text" class="customText" maxlength="15" disabled>
+                        </td>
+                        <td class="tdWidth">
+                            <input id="tdFirst_22" type="text" class="customText" maxlength="15" disabled>
+                        </td>
+                        <td id="tdSecond_6" class="tdWidth"></td>
+                        <td id="tdSecond_14" class="tdWidth"></td>
+                        <td id="tdSecond_22" class=" tdWidth"></td>
+                    </tr>
+                    <tr>
+                        <td class="tdWidth">
+                            <input id="tdFirst_7" type="text" class="customText" maxlength="15" disabled>
+                        </td>
+                        <td class="tdWidth">
+                            <input id="tdFirst_15" type="text" class="customText" maxlength="15" disabled>
+                        </td>
+                        <td class="tdWidth">
+                            <input id="tdFirst_23" type="text" class="customText" maxlength="15" disabled>
+                        </td>
+                        <td id="tdSecond_7" class="tdWidth"></td>
+                        <td id="tdSecond_15" class="tdWidth"></td>
+                        <td id="tdSecond_23" class=" tdWidth"></td>
+                    </tr>
+                    <tr>
+                        <td class="tdWidth">
+                            <input id="tdFirst_8" type="text" class="customText" maxlength="15" disabled>
+                        </td>
+                        <td class="tdWidth">
+                            <input id="tdFirst_16" type="text" class="customText" maxlength="15" disabled>
+                        </td>
+                        <td class="tdWidth">
+                            <input id="tdFirst_24" type="text" class="customText" maxlength="15" disabled>
+                        </td>
+                        <td id="tdSecond_8" class="tdWidth"></td>
+                        <td id="tdSecond_16" class="tdWidth"></td>
+                        <td id="tdSecond_24" class=" tdWidth"></td>
+                    </tr>
                 </tbody>
             </table>
         </div>

@@ -1,62 +1,73 @@
+
+let arr1String = ''
+let arr2String = ''
+
 $(function () {
-    const $nextPage = $('.nextPage');
-    const $checkboxes = $('input:checkbox');
-    const $magnCheckbox = $('#magn');
-    const $pm1Checkbox = $('#pm1');
-    const $pm2Checkbox = $('#pm2');
-    const $customTextInputs = $("input.customText");
-    const $select1Inputs = $("select.select1");
-    const $select2Inputs = $("select.select2");
-    const $sampleNumberInput = $('#sampleNumberInput');
+    generateArrString()
+    sampleNumberUpdateEvent()
+    nextPageEvent()
+    checkBoxEvent()
 
-    sampleNumberUpdateEvent();
-
-    $nextPage.addClass('not-allowed');
-
-    $checkboxes.on('change', checkBoxEvent);
-
-    $nextPage.click(function () {
-        if ($magnCheckbox.is(':checked') && $pm1Checkbox.is(':checked') && $pm2Checkbox.is(':checked')) {
-            window.location.href = "/third";
-        }
-    });
 });
 
-function setElementEnabled($elements, count) {
-    $elements.each(function (i, obj) {
-        if (i < count) {
-            $(obj).removeAttr('disabled');
-        } else {
-            $(obj).attr('disabled', 'disabled');
-        }
-    });
-}
-
-function checkBoxEvent() {
-    const $nextPage = $('.nextPage');
-    const $magnCheckbox = $('#magn');
-    const $pm1Checkbox = $('#pm1');
-    const $pm2Checkbox = $('#pm2');
-
-    if ($magnCheckbox.is(':checked') && $pm1Checkbox.is(':checked') && $pm2Checkbox.is(':checked')) {
-        $nextPage.addClass('allowed').removeClass('not-allowed');
-    } else {
-        $nextPage.addClass('not-allowed').removeClass('allowed');
+let generateArrString = function () {
+    for (let i = 0; i < arr1.length; i++) {
+        arr1String = arr1String + `<option value="${arr1[i]}">${arr1[i]}</option>`
+    }
+    for (let i = 0; i < arr2.length; i++) {
+        arr2String = arr2String + `<option value="${arr2[i]}">${arr2[i]}</option>`
     }
 }
 
-function sampleNumberUpdateEvent() {
-    const $sampleNumberInput = $('#sampleNumberInput');
-    const count = $sampleNumberInput.val();
-
-    setElementEnabled($customTextInputs, count);
-    setElementEnabled($select1Inputs, count);
-    setElementEnabled($select2Inputs, count);
-
-    $sampleNumberInput.change(function () {
-        const count = $sampleNumberInput.val();
-        setElementEnabled($customTextInputs, count);
-        setElementEnabled($select1Inputs, count);
-        setElementEnabled($select2Inputs, count);
+let checkBoxEvent = function () {
+    $('input:checkbox').on('change', function () {
+        if ($('#magn:checked').length > 0 && $('#pm1:checked').length > 0 && $('#pm2:checked').length > 0) {
+            $('.nextPage').css('cursor', 'pointer')
+            $('.nextPage').css('background-color', 'rgb(0, 0, 204)')
+            $('.nextPage').css('color', 'white')
+        } else {
+            $('.nextPage').css('cursor', 'not-allowed')
+            $('.nextPage').css('background-color', 'rgb(51, 204, 51)')
+            $('.nextPage').css('color', 'black')
+        }
     });
+}
+
+let nextPageEvent = function () {
+    $('.nextPage').css('cursor', 'not-allowed')
+    $('.nextPage').click(function () {
+        if ($('#magn:checked').length > 0 && $('#pm1:checked').length > 0 && $('#pm2:checked').length > 0) {
+            window.location.href = "/third";
+        }
+    })
+}
+
+let enableObj = function (count) {
+
+    for (let i = 1; i <= 24; i++) {
+        if (i <= count) {
+            $(`#tdFirst_${i}`).removeAttr('disabled')
+            if ($(`#tdSecond_${i}`).children().length == 0) {
+                $(`#tdSecond_${i}`).append(`
+                    <select class="select1">
+                        ${arr1String}
+                    </select>
+                    <select class="select2">
+                        ${arr2String}
+                    </select>
+                    `)
+            }
+        } else {
+            $(`#tdSecond_${i}`).empty()
+            $(`#tdFirst_${i}`).attr('disabled', 'disabled')
+        }
+    }
+}
+
+let sampleNumberUpdateEvent = function () {
+    enableObj($('#sampleNumberInput').val())
+
+    $('#sampleNumberInput').change(function () {
+        enableObj($('#sampleNumberInput').val())
+    })
 }

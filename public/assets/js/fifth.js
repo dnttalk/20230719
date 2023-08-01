@@ -41,8 +41,8 @@ let ChangeStatus = function () {
             processStatus++
         } else {
             processStatus++
-            alert('done all process')
             clearInterval(cStatus)
+            window.location.href = "/report";
         }
     }, 5000)
 }

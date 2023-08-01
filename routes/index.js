@@ -15,10 +15,8 @@ var loginController = require("../controller/loginController");
 router.get('/', pageController.firstPage);
 //第二層
 router.get('/second', pageController.secondPage);
-//第三層(勾選層)
+//第三層(勾選層 + 確認層)
 router.get('/third', pageController.thirdPage);
-//第四層(確認層)
-router.get('/forth', pageController.forthPage);
 //第五層(進度層)
 router.get('/fifth', pageController.fifthPage);
 //自我診斷頁面

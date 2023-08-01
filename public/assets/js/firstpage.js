@@ -10,9 +10,21 @@ let statusEvent = function () {
     if (status < 3) {
         status++
         $('#pcrBtn').text(statusArr[status])
+        console.log(statusArr[status])
     } else {
         status = 0
         $('#pcrBtn').text(statusArr[status])
+        console.log(statusArr[status])
+    }
+    if (statusArr[status] == 'PCR opening') {
+        $.get("/api/start/open", function (data) {
+            console.log(data)
+        });
+    }
+    if (statusArr[status] == 'PCR closing') {
+        $.get("/api/start/close", function (data) {
+            console.log(data)
+        });
     }
 }
 
