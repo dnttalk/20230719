@@ -35,38 +35,31 @@ router.post('/api/user/login', loginController.login)
 
 // 業主api從app.js 轉移到這 =================================
 // 示例路由处理程序，使用 apiUrl
-// router.get('/users', (req, res) => {
-//     const apiUrl = req.path;
-//     console.log(apiUrl)
-//     // 使用 apiUrl 进行 API 请求
-//     res.send('API URL: ' + apiUrl);
-//     console.log(apiUrl);
-// });
+router.get('', (req, res) => {
+    const apiUrl = req.path;
+    console.log(apiUrl)
+    // 使用 apiUrl 进行 API 请求
+    res.send('API URL: ' + apiUrl);
+    console.log(apiUrl);
+});
 router.get('/api/start/open', (req, res) => {
-    const PCR_open = require('../public/javascripts/PCR_open.js');
+    const PCR_open = require('../public/assets/js/PCR_open.js');
     PCR_open.req;
     res.json({ message: 'PCR 開蓋' });
 });
 
 router.get('/api/start/close', (req, res) => {
-    const PCR_close = require('../public/javascripts/PCR_close.js');
+    const PCR_close = require('../public/assets/js/PCR_close.js');
     PCR_close.req;
     res.json({ message: 'PCR 關蓋' });
 });
 
 router.get('/api/start/read', (req, res) => {
-    const read_head = require('../public/javascripts/read_head.js');
+    const read_head = require('../public/assets/js/read_head.js');
     read_head.req;
     res.json({ message: '槍頭' });
 });
 
-router.get('/api/start/both', (req, res) => {
-    const openScript = require('../public/javascripts/PCR_open.js');
-    openScript.req;
-    const closeScript = require('../public/javascripts/PCR_close.js');
-    closeScript.req;
-    res.json({ message: 'PCR 開蓋並關蓋' });
-});
 // 業主api從app.js 轉移到這 =================================
 
 module.exports = router;
