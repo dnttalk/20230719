@@ -43,23 +43,22 @@ router.get('', (req, res) => {
     console.log(apiUrl);
 });
 router.get('/api/start/open', (req, res) => {
-    const PCR_open = require('../public/assets/js/PCR_open.js');
+    let PCR_open = require('../public/assets/js/PCR_open.js');
     PCR_open.req;
     res.json({ message: 'PCR 開蓋' });
 });
 
 router.get('/api/start/close', (req, res) => {
-    const PCR_close = require('../public/assets/js/PCR_close.js');
+    let PCR_close = require('../public/assets/js/PCR_close.js');
     PCR_close.req;
     res.json({ message: 'PCR 關蓋' });
 });
 
 router.get('/api/start/read', (req, res) => {
-    const read_head = require('../public/assets/js/read_head.js');
+    let read_head = require('../public/assets/js/read_head.js');
     read_head.req;
     res.json({ message: '槍頭' });
 });
 
-// 業主api從app.js 轉移到這 =================================
 
 module.exports = router;

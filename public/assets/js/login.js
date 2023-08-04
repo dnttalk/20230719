@@ -11,3 +11,8 @@ login.onclick = function (e) {
         form.submit()
     }
 }
+
+if (typeof $.cookie('user') == 'undefined') {
+} else {
+    location.href = '/'
+}
