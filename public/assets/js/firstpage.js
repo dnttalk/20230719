@@ -1,6 +1,6 @@
 // PCR狀態宣告
 let status = 0 // 0:PCR open, 1:PCR opening, 2:PCR close, 3:PCR closing 
-let statusArr = ['PCR open', 'PCR opening', 'PCR close', 'PCR closing']
+let statusArr = ['PCR lib open', 'PCR lib opening', 'PCR lib close', 'PCR lib closing']
 
 $(function () {
     btnAnimation()
@@ -16,12 +16,12 @@ let statusEvent = function () {
         $('#pcrBtn').text(statusArr[status])
         console.log(statusArr[status])
     }
-    if (statusArr[status] == 'PCR opening') {
+    if (statusArr[status] == 'PCR lib opening') {
         $.get("/api/pcrlib/open", function (data) {
             console.log(data)
         });
     }
-    if (statusArr[status] == 'PCR closing') {
+    if (statusArr[status] == 'PCR lib closing') {
         $.get("/api/pcrlib/close", function (data) {
             console.log(data)
         });
@@ -72,3 +72,6 @@ document.getElementById('pcrBtn').addEventListener('click', function () {
             console.error('錯誤:', error); // 將錯誤記錄到控制台
         });
 });
+
+const leukemiaLink = document.getElementById("btn-la");
+btn - la.addEventListener("click", handleLeukemiaClick);

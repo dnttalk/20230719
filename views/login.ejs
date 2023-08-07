@@ -6,7 +6,7 @@
     <title>Login</title>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <%- include('./layout/head') -%>
-    <link rel="stylesheet" href="/assets/css/login.css">
+        <link rel="stylesheet" href="/assets/css/login.css">
 
 </head>
 
@@ -21,15 +21,17 @@
                                 <div class="card-body p-4 py-5 my-5 text-black">
                                     <form id="loginForm" action="/api/user/login" method="post">
                                         <div class="d-flex align-items-center mb-3 pb-1">
-                                            <!-- <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i> -->
+
                                             <span class="h1 fw-bold mb-0" style="color:rgb(9, 127, 245);">Login
                                                 Account</span>
                                         </div>
                                         <div class="form-outline my-5">
-                                            <input type="text" name="user" id="user" class="form-control form-control-lg" placeholder="Username" />
+                                            <input type="text" name="user" id="user"
+                                                class="form-control form-control-lg" placeholder="Username" />
                                         </div>
                                         <div class="form-outline my-5">
-                                            <input type="password" name="pwd" id="pwd" class="form-control form-control-lg" placeholder="Password" />
+                                            <input type="password" name="pwd" id="pwd"
+                                                class="form-control form-control-lg" placeholder="Password" />
                                         </div>
                                         <div class="row my-5">
                                             <div class="col-md-6">
