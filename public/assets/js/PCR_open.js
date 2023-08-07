@@ -3,13 +3,7 @@ const net = require('net');
 const HOST = '192.168.1.101';
 const PORT = 8001;
 const M681 = '500000FFFF03000D0010000114010018020090010010';
-const D844 = '500000FFFF03000C001000010400004C0300A80100';
-const R4411_1 = '500000FFFF030010001000011400003B1100AF020041000000';
-const R4411_2 = '500000FFFF03000E001000011400003B1100AF01000100';
-
 const a = Buffer.from(M681, 'hex');
-const b = Buffer.from(D844, 'hex');
-const c = Buffer.from(R4411_1, 'hex');
 
 const client = net.connect(PORT, HOST, () => {
   //client.write(a);
@@ -43,4 +37,3 @@ setTimeout(function () {
   client.end();
 }, 1000);
 
-//client.end();
