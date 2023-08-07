@@ -42,17 +42,18 @@ router.get('', (req, res) => {
     res.send('API URL: ' + apiUrl);
     console.log(apiUrl);
 });
-router.get('/api/start/open', (req, res) => {
+router.get('/api/pcrlib/open', (req, res) => {
     let PCR_open = require('../public/assets/js/PCR_open.js');
     PCR_open.req;
     res.json({ message: 'PCR 開蓋' });
 });
 
-router.get('/api/start/close', (req, res) => {
+router.get('/api/pcrlib/close', (req, res) => {
     let PCR_close = require('../public/assets/js/PCR_close.js');
     PCR_close.req;
     res.json({ message: 'PCR 關蓋' });
 });
+
 
 router.get('/api/start/read', (req, res) => {
     let read_head = require('../public/assets/js/read_head.js');

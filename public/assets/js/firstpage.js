@@ -17,12 +17,12 @@ let statusEvent = function () {
         console.log(statusArr[status])
     }
     if (statusArr[status] == 'PCR opening') {
-        $.get("/api/start/open", function (data) {
+        $.get("/api/pcrlib/open", function (data) {
             console.log(data)
         });
     }
     if (statusArr[status] == 'PCR closing') {
-        $.get("/api/start/close", function (data) {
+        $.get("/api/pcrlib/close", function (data) {
             console.log(data)
         });
     }
@@ -54,8 +54,8 @@ document.getElementById('pcrBtn').addEventListener('click', function () {
 
     // API 伺服器位址
     const apiUrl = isPCRStarted
-        ? 'http://localhost:3000/api/start/close'
-        : 'http://localhost:3000/api/start/open';
+        ? 'http://localhost:3000/api/pcrlib/close'
+        : 'http://localhost:3000/api/pcrlib/open';
 
     // 發送 GET 請求到 API 伺服器
     fetch(apiUrl)

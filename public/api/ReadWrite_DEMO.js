@@ -7,13 +7,16 @@ const R4411 = '500000FFFF03000E001000011400003B1100AF0100002F';
 const R4443 = '500000FFFF030016001000011400005B1100AF050045444F4D462E4F4C0057';
 //DEMO.FLOW
 const M5010 = '500000FFFF03000D0010000114010092130090010010'
+const M5010_R = '500000FFFF03000D0010000114010092130090010000'
 const path = Buffer.from(R4411, 'hex');
 const file = Buffer.from(R4443, 'hex');
-// const ok = Buffer.from(M5010, 'hex');
+const ok = Buffer.from(M5010, 'hex');
+const ok_1 = Buffer.from(M5010_R, 'hex');
 const client = net.connect(PORT, HOST, () => {
   client.write(path);
   client.write(file);
-  // client.write(ok);
+  client.write(ok);
+  client.write(ok_1);
   console.log('Command sent!');
 });
 

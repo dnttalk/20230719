@@ -3,13 +3,13 @@ const net = require('net');
 const HOST = '192.168.1.101';
 const PORT = 8001;
 const M536 = '500000FFFF03000D0010000114010019020090010010';
-
+const M536_R = '500000FFFF03000D0010000114010019020090010010';
 const a = Buffer.from(M536, 'hex');
-
+const b = Buffer.from(M536_R, 'hex');
 
 const client = net.connect(PORT, HOST, () => {
-  //client.write(a);
   client.write(a);
+  client.write(b);
   console.log('Command sent!');
 });
 
