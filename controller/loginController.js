@@ -15,14 +15,14 @@ let login = async (req, res) => {
             const userObj = arr.find(obj => obj.user === user && obj.pwd === pwd);
 
             if (userObj) {
-                res.render('firstPage', { u: user, title: '登入成功' });
+                res.render('loadingPage', { u: user, title: '登入成功' });
             } else {
-                res.send(`<h1 style='color:red'>! 登入失敗</h1> 登入失敗！3秒後將自動返回登入介面.....<script>setTimeout(() => {window.location = '/';}, 3000);</script>`);
+                res.send(`<h1 style='color:red'>! 登入失敗</h1> 登入失敗！3秒後將自動返回登入介面.....<script>setTimeout(() => {window.location = '/login';}, 3000);</script>`);
             }
         });
     } catch (err) {
         console.log(err)
-        res.send(`<h1 style='color:red'>! 發生錯誤</h1> 發生錯誤！3秒後將自動返回登入介面.....<script>setTimeout(() => {window.location = '/';}, 3000);</script>`);
+        res.send(`<h1 style='color:red'>! 發生錯誤</h1> 發生錯誤！3秒後將自動返回登入介面.....<script>setTimeout(() => {window.location = '/login';}, 3000);</script>`);
     }
 }
 

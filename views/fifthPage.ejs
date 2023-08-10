@@ -34,6 +34,7 @@
                                                     <div id="statusNumber1" class="text-wrapper-3">01</div>
                                                 </div>
                                             </div>
+                                            <img class="element-19" alt="Element" src="/assets/img/---91.svg">
                                             <img class="element-7" alt="Element" src="/assets/img/---87.svg">
                                             <div class="element-8">
                                                 <div class="text-wrapper-2">1st PCR</div>
@@ -44,14 +45,21 @@
                                                 <div class="text-wrapper-2">1st PCR products purification</div>
                                             </div>
                                             <img class="element-18" alt="Element" src="/assets/img/--58@2x.png">
-                                            <img class="element-19" alt="Element" src="/assets/img/---91.svg">
-                                            <div class="element-20">
+
+                                            <img class="element-50" alt="Element" src="/assets/img/---12.svg">
+                                            <div class="element-51">
                                                 <div class="text-wrapper-2">2nd PCR</div>
                                             </div>
-                                            <img class="element-23" alt="Element" src="/assets/img/--68@2x.png">
-                                            <img class="element-24" alt="Element" src="/assets/img/---93.svg">
-                                            <div class="element-25">
+                                            <img class="element-52" alt="Element" src="/assets/img/--58@2x.png">
+
+
+                                            <div class="element-20">
                                                 <div class="text-wrapper-2">2nd PCR products purification</div>
+                                            </div>
+                                            <img class="element-23" alt="Element" src="/assets/img/--68@2x.png">
+                                            <img class="element-24" alt="Element" src="/assets/img/---87.svg">
+                                            <div class="element-25">
+                                                <div id="pcText" class="text-wrapper-2">Program Complete</div>
                                             </div>
                                             <img class="element-28" alt="Element" src="/assets/img/--78@2x.png">
                                             <img class="element-29" alt="Element" src="/assets/img/---95.svg">
@@ -59,14 +67,33 @@
                                             <div id="statusNumber3" class="text-wrapper-6">03</div>
                                             <div id="statusNumber4" class="text-wrapper-7">04</div>
                                             <div id="statusNumber5" class="text-wrapper-8">05</div>
-                                            <div class="element">Remaining Time: 00:00:00</div>
+                                            <div id="statusNumber6" class="text-wrapper-44">06</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-4 text-center">
+                                <div class="row my-5">
+                                    <div class="element">Remaining Time: 00:00:00</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 py-5">
+                                        <button type="button" class="chooseBtn nextPage btn-primary border-5">
+                                            <i class="fa-solid fa-pause"></i>
+                                        </button>
+                                    </div>
+                                    <div class="col-6 py-5">
+                                        <button type="button" class="chooseBtn nextPage btn-primary border-5">
+                                            <i class="fa-solid fa-caret-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <button type="button" class="btn btn-warning btn-confirm">End Program</button>
+                                </div>
 
-                                <div class="overlap-3">
+
+                                <!-- <div class="overlap-3">
                                     <div class="element-35">
                                         <div class="overlap-group-4 btn-pause">
                                             <img class="element-36" alt="Element" src="/assets/img/--10@2x.png">
@@ -99,7 +126,7 @@
                                     </div>
                                     <img class="element-41" alt="Element" src="/assets/img/---80.svg">
                                     <img class="element-42" alt="Element" src="/assets/img/---81.svg">
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -110,6 +137,27 @@
     </div>
 
     <div class="modal fade" id="EOPModal" tabindex="-1" aria-labelledby="EOPModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container text-center">
+                        <div class="row modalFirstRow">
+                            <p>End Program?</p>
+                        </div>
+                        <div class="row justify-content-md-center my-5">
+                            <div class="col-3">
+                                <button type="button" class="btn chooseBtn" data-bs-dismiss="modal">&Chi;</button>
+                            </div>
+                            <div class="col-3">
+                                <button id="confirmPOE" type="button" class="btn chooseBtn">&radic;</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="modal fade" id="EOPModal" tabindex="-1" aria-labelledby="EOPModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -125,7 +173,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <%- include('./layout/js') -%>
     <script src="/assets/js/fifth.js"></script>

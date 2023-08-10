@@ -16,91 +16,106 @@
             <h1>Check list of Sample, Reagents, and Consumables</h1>
         </div>
         <div class="row checkSOP">
-            <div class="col border border-2">
-                <input id="ck_trx1" class="bigcheckbox" type="checkbox">
-                <h5>Tip rack X1</h5>
-            </div>
-            <div class="col  border border-2">
-                <div class="row">
-                    <div class="col">
-                        <input id="ck_reagents" class="smallcheckbox" type="checkbox">
-                        <h5>Reagents</h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <input id="ck_sample" class="smallcheckbox" type="checkbox">
-                        <h5>Sample</h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <input id="ck_ipm" class="smallcheckbox" type="checkbox">
-                        <h5>Index PCR mix</h5>
-                    </div>
+            <div class="col border-3 border-solid">
 
-                </div>
+                <button type="button" id="trx1" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Tip rack X1</button>
             </div>
-            <div class="col border border-2">
-                <input id="ck_96wpp" class="bigcheckbox" type="checkbox">
-                <h5>
+            <div class="col border-3 border-solid">
+                <button type="button" id="reagents" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Reagents</button>
+                <button type="button" id="sample" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Sample</button>
+                <button type="button" id="ipcrm" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Index PCR mix</button>
+            </div>
+            <div class="col border-3 border-solid">
+
+                <button type="button" id="96wpcrp" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     96 well PCR plate
-                </h5>
+                </button>
             </div>
             <div class="col"></div>
         </div>
         <div class="row checkSOP">
-            <div class="col border border-2">
-                <input id="ck_trx3" class="bigcheckbox" type="checkbox">
-                <h5>
+            <div class="col border-3 border-solid">
+
+                <button type="button" id="trx3" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     Tip rack X3
-                </h5>
+                </button>
             </div>
-            <div class="col border border-2 boder-dashed"></div>
-            <div class="col border border-2 boder-dashed"></div>
+            <div class="col border-3 boder-dashed"></div>
+            <div class="col border-3 boder-dashed"></div>
             <div class="col"></div>
         </div>
         <div class="row checkSOP">
-            <div class="col border border-2 boder-dashed"></div>
-            <div class="col border border-2">
-                <input id="ck_12wpwr" class="bigcheckbox" type="checkbox">
-                <h5>12 well plate
-                    with reagent</h5>
+            <div class="col border-3 boder-dashed"></div>
+            <div class="col border-3 border-solid">
+
+                <button type="button" id="12wpwr" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">12 well plate
+                    with reagent</button>
             </div>
-            <div class="col border border-2">
-                <input id="ck_dwp" class="bigcheckbox" type="checkbox">
-                <h5>
+            <div class="col border-3 border-solid">
+
+                <button type="button" id="dwp" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     Deep well
                     plate
-                </h5>
+                </button>
             </div>
             <div class="col">
-                <div class="done border border-2">
-                    <h5>Ashcan</h5>
+                <div class="done border-3 border-solid">
+
+                    <button type="button" id="ashcan" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Ashcan</button>
                 </div>
-                <input id="ck_ashcan" class="bigcheckbox" type="checkbox">
             </div>
         </div>
         <div class="row checkSOP">
-            <div class="col border border-2 boder-dashed"></div>
-            <div class="col"></div>
-            <div class="col border border-2">
-                <input id="ck_erc" class="bigcheckbox" type="checkbox">
-                <h5>
+            <div class="col border-3 boder-dashed"></div>
+            <div class="col border-empty"></div>
+            <div class="col border-3 border-solid">
+
+                <button type="button" id="erc" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     Empty racks
                     Cleaned
-                </h5>
+                </button>
             </div>
             <div class="col"></div>
         </div>
         <div class="row mt-5 justify-content-between">
             <div class="col-2">
-                <a href="/second"><button type="button" class="prevPage btn-primary border-5">prevPage</button></a>
+                <a href="/second">
+                    <button type="button" class="changePage prevPage btn-primary border-5">
+                        <i class="fa-solid fa-caret-left"></i>
+                    </button>
+                </a>
             </div>
             <div class="col-2">
-                <button type="button" class="nextPage btn-primary border-5">nextPage</button>
+                <button type="button" class="changePage nextPage btn-primary border-5">
+                    <i class="fa-solid fa-caret-right"></i>
+                </button>
             </div>
-
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row">
+                            <p>check machine</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 text-start">
+                                <button id="cancleChoose" type="button" class="chooesBtn changePage btn-primary border-5" data-bs-dismiss="modal">X</button>
+                            </div>
+                            <div class="col-6 text-end">
+                                <button id="doneChoose" type="button" class="chooesBtn changePage btn-primary border-5" data-bs-dismiss="modal">done</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div> -->
+            </div>
         </div>
     </div>
     <%- include('./layout/js') -%>

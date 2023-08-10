@@ -1,4 +1,8 @@
 // 20230718修改================================
+//載入過場頁面
+let loadingPage = async (req, res) => {
+    res.render('loadingPage')
+}
 //第一頁(主頁)
 let firstPage = async (req, res) => {
     res.render('firstPage')
@@ -41,6 +45,7 @@ let loginPage = async (req, res) => {
 }
 
 module.exports = {
+    loadingPage: loadingPage,
     firstPage: firstPage,
     secondPage: secondPage,
     thirdPage: thirdPage,

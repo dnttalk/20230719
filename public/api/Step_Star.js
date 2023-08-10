@@ -2,6 +2,7 @@ const net = require('net');
 
 const HOST = '192.168.1.101';
 const PORT = 8001;
+const R499 = '';
 const M300 = '500000FFFF03000D001000011401002C010090010010';
 
 

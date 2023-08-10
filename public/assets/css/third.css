@@ -1,11 +1,15 @@
 .nextPage {
     background-color: rgb(51, 204, 51);
     width: 100px;
+    margin-left: 0.6em;
+    margin-top: -3em;
 }
 
 .prevPage {
     background-color: rgb(51, 204, 51);
     width: 100px;
+    margin-left: -2.5em;
+    margin-top: -3em;
 }
 
 #startBtn {
@@ -16,35 +20,126 @@
 
 .col {
     margin: 2px;
+    display: flex;
 }
 
 .checkSOP {
-    height: 117px;
+    height: 137px;
 }
 
 .boder-dashed {
     border-style: dashed !important;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
-.bigcheckbox {
-    position: absolute;
-    margin: 73px -6px;
-    scale: 1.5;
+.border-empty {
+    border: 3px dashed rgba(0, 0, 0, 0) !important;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
-.smallcheckbox {
-    position: absolute;
-    margin: 7px -8.3vw;
+.border-solid {
+    border-style: solid !important;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+
+
+.border-warning {
+    border: 3px dashed red !important;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.btn {
+    flex: auto;
+    border-radius: 0;
+    margin: 12px 3px;
 }
 
 .done {
-    border-style: solid;
-    height: 229px;
+    height: 269px;
     position: absolute;
     width: 18%;
+    display: flex;
+
 }
 
-.border-warning {
-    border-style: dashed solid !important;
-    border-color: red !important;
+.done button {
+    margin: 12px;
+}
+
+
+.changePage:hover {
+    color: rgb(0, 176, 240);
+    background-color: #d8d8d8;
+}
+
+.changePage:active {
+    color: rgb(0, 176, 240) !important;
+}
+
+.changePage {
+    width: 60px;
+    height: 60px;
+    font-size: 38px;
+    --color: #000000;
+    --background-color: #d8d8d8;
+    --border-color: darken(#d8d8d8, 7.5%);
+    color: rgb(0, 176, 240);
+    font-family: inherit;
+    background-color: var(--background-color);
+    padding: $btn-padding;
+    border: solid 1px var(--border-color);
+    outline: none;
+    position: relative;
+    border-radius: $btn-border-radius;
+    user-select: none;
+    box-shadow:
+        0 0.2rem 0.4rem rgba(0, 0, 0, 0.4),
+        0 -0.3rem 0.6rem rgba(0, 0, 0, 0.2) inset;
+    transition: box-shadow $btn-transition-time ease-out;
+
+    &:after {
+        content: "";
+        background-color: #ffffff;
+        width: 75%;
+        height: 12.5%;
+        position: absolute;
+        top: 0.15rem;
+        left: 12.5%;
+        border-radius: 50%;
+        filter: blur(0.15rem);
+        transition: opacity $btn-transition-time ease-out;
+    }
+
+    &:active {
+        box-shadow:
+            0 0 0 rgba(0, 0, 0, 0.4),
+            0 0.4rem 1rem rgba(0, 0, 0, 0.3) inset;
+
+        &:after {
+            opacity: 0;
+        }
+    }
+}
+
+.modal-body {
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.chooesBtn {
+    width: 100px;
+}
+
+.checkbtn.active {
+    background-color: rgb(44, 235, 44);
 }

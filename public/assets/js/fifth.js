@@ -28,6 +28,8 @@ let flashNumber = function () {
             $('#statusNumber4').fadeOut(500).fadeIn(500)
         } else if (processStatus == 5) {
             $('#statusNumber5').fadeOut(500).fadeIn(500)
+        } else if (processStatus == 6) {
+            $('#statusNumber6').fadeOut(500).fadeIn(500)
         }
         count++
     }
@@ -37,12 +39,15 @@ let flashNumber = function () {
 let ChangeStatus = function () {
     let cStatus = setInterval(function () {
         flashNumber()
-        if (processStatus < 6) {
+        if (processStatus < 7) {
             processStatus++
         } else {
             processStatus++
             clearInterval(cStatus)
-            window.location.href = "/report";
+            $('#pcText').css('color', 'rgb(44, 235, 44)')
+            setTimeout(function () {
+                // window.location.href = "/report";
+            }, 3000)
         }
     }, 5000)
 }

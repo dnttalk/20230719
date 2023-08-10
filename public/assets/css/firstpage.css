@@ -1,8 +1,66 @@
-body {
+body,
+.modal-body {
     background-image: url("/assets/img/bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+
+.modal-body p {
+    font-size: 40px;
+}
+
+.modalFirstRow {
+    margin-top: 40vh;
+}
+
+.chooseBtn:active {
+    color: rgb(0, 176, 240) !important;
+}
+
+.chooseBtn {
+    width: 60px;
+    height: 60px;
+    font-size: 38px;
+    --color: #000000;
+    --background-color: #d8d8d8;
+    --border-color: darken(#d8d8d8, 7.5%);
+    color: rgb(0, 176, 240);
+    font-family: inherit;
+    background-color: var(--background-color);
+    padding: $btn-padding;
+    border: solid 1px var(--border-color);
+    outline: none;
+    position: relative;
+    border-radius: $btn-border-radius;
+    user-select: none;
+    box-shadow:
+        0 0.2rem 0.4rem rgba(0, 0, 0, 0.4),
+        0 -0.3rem 0.6rem rgba(0, 0, 0, 0.2) inset;
+    transition: box-shadow $btn-transition-time ease-out;
+
+    &:after {
+        content: "";
+        background-color: #ffffff;
+        width: 75%;
+        height: 12.5%;
+        position: absolute;
+        top: 0.15rem;
+        left: 12.5%;
+        border-radius: 50%;
+        filter: blur(0.15rem);
+        transition: opacity $btn-transition-time ease-out;
+    }
+
+    &:active {
+        box-shadow:
+            0 0 0 rgba(0, 0, 0, 0.4),
+            0 0.4rem 1rem rgba(0, 0, 0, 0.3) inset;
+
+        &:after {
+            opacity: 0;
+        }
+    }
 }
 
 .fbtn {

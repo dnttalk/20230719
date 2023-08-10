@@ -23,7 +23,7 @@ let checkUser = function () {
             }
         } else {
             if (typeof $.cookie('user') == 'undefined') {
-                location.href = '/login'
+                // location.href = '/login'
             } else {
                 $('#btn-login').text('User:' + $.cookie('user'))
                 $('#btn-login').prop('disabled', true)
@@ -31,7 +31,7 @@ let checkUser = function () {
         }
     } else {
         if (typeof $.cookie('user') == 'undefined') {
-            location.href = '/login'
+            // location.href = '/login'
         } else {
             $('#btn-login').text('User:' + $.cookie('user'))
             $('#btn-login').prop('disabled', true)

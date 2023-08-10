@@ -13,69 +13,84 @@
 <body>
     <div class="container text-center secondpage-layout">
         <div class="row mt-5 mb-5">
-            <h1>SelfCheck</h1>
+            <h1>Check list of Sample, Reagents, and Consumables</h1>
         </div>
         <div class="row checkSOP">
-            <div class="col border border-2">
+            <div class="col border-3 border-solid">
 
-                <h5>Tip rack X1</h5>
+                <button type="button" id="trx1" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Tip rack X1</button>
             </div>
-            <div class="col">
-
+            <div class="col border-3 border-solid">
+                <button type="button" id="reagents" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Reagents</button>
+                <button type="button" id="sample" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Sample</button>
+                <button type="button" id="ipcrm" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Index PCR mix</button>
             </div>
-            <div class="col border border-2">
+            <div class="col border-3 border-solid">
 
-                <h5>
+                <button type="button" id="96wpcrp" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     96 well PCR plate
-                </h5>
+                </button>
             </div>
             <div class="col"></div>
         </div>
         <div class="row checkSOP">
-            <div class="col border border-2">
+            <div class="col border-3 border-warning">
 
-                <h5>
+                <button type="button" id="trx3" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     Tip rack X3
-                </h5>
+                </button>
             </div>
-            <div class="col border border-2 boder-dashed"></div>
-            <div class="col border border-warning border-2 boder-dashed"></div>
+            <div class="col border-3 boder-dashed"></div>
+            <div class="col border-3 boder-dashed"></div>
             <div class="col"></div>
         </div>
         <div class="row checkSOP">
-            <div class="col border border-2 boder-dashed"></div>
-            <div class="col border border-2">
+            <div class="col border-3 boder-dashed"></div>
+            <div class="col border-3 border-solid">
 
-                <h5>12 well plate
-                    with reagent</h5>
+                <button type="button" id="12wpwr" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">12 well plate
+                    with reagent</button>
             </div>
-            <div class="col border border-2">
+            <div class="col border-3 border-solid">
 
-                <h5>
+                <button type="button" id="dwp" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     Deep well
                     plate
-                </h5>
+                </button>
             </div>
             <div class="col">
+                <div class="done border-3 border-solid">
+
+                    <button type="button" id="ashcan" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Ashcan</button>
+                </div>
             </div>
         </div>
         <div class="row checkSOP">
-            <div class="col border border-2 boder-dashed"></div>
-            <div class="col"></div>
-            <div class="col border border-2">
+            <div class="col border-3 boder-dashed"></div>
+            <div class="col border-empty"></div>
+            <div class="col border-3 border-solid">
 
-                <h5>
+                <button type="button" id="erc" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     Empty racks
                     Cleaned
-                </h5>
+                </button>
             </div>
             <div class="col"></div>
         </div>
-        <div class="row mt-5">
-            <a href="/fifth"><button type="button" class="prevPage btn-primary border-5">prevPage</button></a>
+        <div class="row mt-5 justify-content-between">
+            <div class="col-2">
+                <a href="/third">
+                    <button type="button" class="changePage prevPage btn-primary border-5">
+                        <i class="fa-solid fa-caret-left"></i>
+                    </button>
+                </a>
+            </div>
+            <!-- <div class="col-2">
+                <button type="button" class="changePage nextPage btn-primary border-5">
+                    <i class="fa-solid fa-caret-right"></i>
+                </button>
+            </div> -->
         </div>
-        <!-- <a href="/fifth"><button type="button" id="startBtn" class="nextPage btn-primary border-5">start</button></a> -->
-
     </div>
     <%- include('./layout/js') -%>
 </body>

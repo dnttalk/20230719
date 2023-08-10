@@ -17,12 +17,12 @@ let statusEvent = function () {
         console.log(statusArr[status])
     }
     if (statusArr[status] == 'PCR opening') {
-        $.get("/api/start/open", function (data) {
+        $.get("/api/pcrlib/open", function (data) {
             console.log(data)
         });
     }
     if (statusArr[status] == 'PCR closing') {
-        $.get("/api/start/close", function (data) {
+        $.get("/api/pcrlib/close", function (data) {
             console.log(data)
         });
     }
@@ -48,27 +48,27 @@ let btnAnimation = function () {
 let isPCRStarted = false;
 
 // 按鈕事件監聽器
-// document.getElementById('pcrBtn').addEventListener('click', function () {
-//     // 取得按鈕元素
-//     const pcrBtn = document.getElementById('pcrBtn');
+document.getElementById('pcrBtn').addEventListener('click', function () {
+    // 取得按鈕元素
+    const pcrBtn = document.getElementById('pcrBtn');
 
-//     // API 伺服器位址
-//     const apiUrl = isPCRStarted
-//         ? 'http://localhost:3000/api/start/close'
-//         : 'http://localhost:3000/api/start/open';
+    // API 伺服器位址
+    const apiUrl = isPCRStarted
+        ? 'http://localhost:3000/api/pcrlib/close'
+        : 'http://localhost:3000/api/pcrlib/open';
 
-//     // 發送 GET 請求到 API 伺服器
-//     fetch(apiUrl)
-//         .then(response => response.json()) // 解析回應為 JSON 格式
-//         .then(data => {
-//             console.log(data.message); // 將伺服器回應記錄到控制台
+    // 發送 GET 請求到 API 伺服器
+    fetch(apiUrl)
+        .then(response => response.json()) // 解析回應為 JSON 格式
+        .then(data => {
+            console.log(data.message); // 將伺服器回應記錄到控制台
 
-//             // 切換開關狀態
-//             isPCRStarted = !isPCRStarted;
-//             // 根據當前開關狀態更新按鈕文字
-//             pcrBtn.textContent = isPCRStarted ? 'Stop PCR' : 'Start PCR';
-//         })
-//         .catch(error => {
-//             console.error('錯誤:', error); // 將錯誤記錄到控制台
-//         });
-// });
+            // 切換開關狀態
+            isPCRStarted = !isPCRStarted;
+            // 根據當前開關狀態更新按鈕文字
+            pcrBtn.textContent = isPCRStarted ? 'Stop PCR' : 'Start PCR';
+        })
+        .catch(error => {
+            console.error('錯誤:', error); // 將錯誤記錄到控制台
+        });
+});

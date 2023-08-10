@@ -12,15 +12,10 @@ td {
     border-collapse: collapse;
 }
 
-.cbtest {
-    position: fixed;
-    margin: 39px -17px;
-}
-
 .scircle {
     border-radius: 50%;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     margin: 5px 0;
 }
 
@@ -36,13 +31,13 @@ td {
 }
 
 .nextPage {
-    background-color: rgb(51, 204, 51);
-    width: 100px;
+    margin-left: 3.9em;
+    margin-top: -3em;
 }
 
 .prevPage {
-    background-color: rgb(51, 204, 51);
-    width: 100px;
+    margin-left: -4.2em;
+    margin-top: -3em;
 }
 
 .select1,
@@ -54,3 +49,107 @@ td {
 .tdWidth {
     width: 154px;
 }
+
+.changePage:hover {
+    color: rgb(0, 176, 240);
+    background-color: #d8d8d8;
+}
+
+.changePage:active {
+    color: rgb(0, 176, 240) !important;
+}
+
+.changePage {
+    width: 60px;
+    height: 60px;
+    font-size: 38px;
+    --color: #000000;
+    --background-color: #d8d8d8;
+    --border-color: darken(#d8d8d8, 7.5%);
+    color: rgb(0, 176, 240);
+    font-family: inherit;
+    background-color: var(--background-color);
+    padding: $btn-padding;
+    border: solid 1px var(--border-color);
+    outline: none;
+    position: relative;
+    border-radius: $btn-border-radius;
+    user-select: none;
+    box-shadow:
+        0 0.2rem 0.4rem rgba(0, 0, 0, 0.4),
+        0 -0.3rem 0.6rem rgba(0, 0, 0, 0.2) inset;
+    transition: box-shadow $btn-transition-time ease-out;
+
+    &:after {
+        content: "";
+        background-color: #ffffff;
+        width: 75%;
+        height: 12.5%;
+        position: absolute;
+        top: 0.15rem;
+        left: 12.5%;
+        border-radius: 50%;
+        filter: blur(0.15rem);
+        transition: opacity $btn-transition-time ease-out;
+    }
+
+    &:active {
+        box-shadow:
+            0 0 0 rgba(0, 0, 0, 0.4),
+            0 0.4rem 1rem rgba(0, 0, 0, 0.3) inset;
+
+        &:after {
+            opacity: 0;
+        }
+    }
+}
+
+.asbtn {
+    width: 85px;
+    margin: 0 10px;
+}
+
+.modal-body {
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.chooesBtn {
+    width: 100px;
+}
+
+.countPopBtn.active {
+    background-color: rgb(44, 235, 44);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.modal button {
+  font-size: 16px;
+  padding: 5px 10px;
+}
+
+.modal input {
+  font-size: 16px;
+  padding: 5px;
+  text-align: center;
+}
+
+   /* 只是一些簡單的CSS樣式，可自行調整 */
+   #sampleNumberInput {
+    width: 150px;
+    height: 30px;
+    font-size: 16px;
+    text-align: center;
+  }

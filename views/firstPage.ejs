@@ -4,61 +4,79 @@
 <head>
     <title>第一頁</title>
     <%- include('./layout/head') -%>
-        <link rel="stylesheet" href="/assets/css/firstpage.css" />
-        <script>
-            let user = null;
-        <% if (locals.u) { %>
-                user = '<%= u %>';
-        <% } %>
-        </script>
+    <link rel="stylesheet" href="/assets/css/firstpage.css" />
+
 </head>
 
 <body>
     <div class="container text-center firstpage-layout">
         <div class="row">
-            <a class="midBtn" href="/second?id=leukemia"><button id="btn-la" type="button"
-                    class="fbtn btn btn-primary border-5">Leukemia</button></a>
+            <a class="midBtn" href="/second?id=leukemia"><button id="btn-la" type="button" class="fbtn btn btn-primary border-5">Leukemia</button></a>
         </div>
         <div class="row">
-            <a class="midBtn" href="/second?id=mpn"><button id="btn-mpn" type="button"
-                    class="fbtn btn btn-primary border-5">MPN</button></a>
+            <a class="midBtn" href="/second?id=mpn"><button id="btn-mpn" type="button" class="fbtn btn btn-primary border-5">MPN</button></a>
         </div>
         <div class="row">
-            <a class="midBtn" href="/second?id=tp53"><button id="btn-tp53" type="button"
-                    class="fbtn btn btn-primary border-5">TP53</button></a>
+            <a class="midBtn" href="/second?id=tp53"><button id="btn-tp53" type="button" class="fbtn btn btn-primary border-5">TP53</button></a>
         </div>
     </div>
 
     <div class="siderbar">
         <div class="row">
-            <a href="/login"><button id="btn-login" type="button"
-                    class="fbtn btn btn-primary border-5">Login</button></a>
+            <a href="/login"><button id="btn-login" type="button" class="fbtn btn btn-primary border-5">Login</button></a>
         </div>
-        <div class="row">
-            <button id="btn-logout" type="button" class="fbtn btn btn-primary border-5">Logout</button>
-        </div>
+
         <!-- PCR button -->
         <div class="row">
             <button id="pcrBtn" class="fbtn btn btn-primary border-5">PCR unload</button>
         </div>
         <div class="row">
-            <a href="/history"><button id="btn-history" type="button"
-                    class="fbtn btn btn-primary border-5">History</button></a>
+            <a href="/history"><button id="btn-history" type="button" class="fbtn btn btn-primary border-5">History</button></a>
         </div>
         <div class="row">
             <button id="btn-calibration" type="button" class="fbtn btn btn-primary border-5">Calibration</button>
         </div>
         <div class="row">
-            <a href="#"><button id="btn-calibration" type="button" class="fbtn btn btn-primary border-5"><img
-                        style="width: 50px;" src="/assets/img/1119298.svg"></button></a>
+            <a href="#"><button id="btn-calibration" type="button" class="fbtn btn btn-primary border-5"><img style="width: 50px;" src="/assets/img/1119298.svg"></button></a>
+        </div>
+        <div class="row">
+            <button type="button" class="fbtn btn btn-primary border-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Exit</button>
         </div>
     </div>
-
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <!-- <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div> -->
+                <div class="modal-body">
+                    <div class="container text-center">
+                        <div class="row modalFirstRow">
+                            <p>Exit iNA NGS workstation?</p>
+                        </div>
+                        <div class="row justify-content-md-center my-5">
+                            <div class="col-3">
+                                <button type="button" class="btn chooseBtn" data-bs-dismiss="modal">&Chi;</button>
+                            </div>
+                            <div class="col-3">
+                                <button id="btn-logout" type="button" class="btn chooseBtn">&radic;</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
     <%- include('./layout/js') -%>
-        <script src="/assets/js/firstpage.js"></script>
-        <script src="/assets/js/PCR_open.js"></script>
-        <script src="/assets/js/PCR_close.js"></script>
-        <script src="/assets/js/ReadWrite_DEMO.js"></script>
+    <script src="/assets/js/firstpage.js"></script>
+    <script src="/assets/js/PCR_open.js"></script>
+    <script src="/assets/js/PCR_close.js"></script>
 </body>
 
 </html>
