@@ -79,3 +79,41 @@ let poe = function () {
         window.location.href = "/";
     })
 }
+let start = function () {
+    $('#start').click(function () {
+        if (requiredSections.every(section => $(section).hasClass('active'))) {
+            $.get("/api/start/M300", function (data) {
+                console.log(data);
+            });
+        }
+    });
+}
+let pause = function () {
+    $('#pause').click(function () {
+        if (requiredSections.every(section => $(section).hasClass('active'))) {
+            $.get("/api/start/M301", function (data) {
+                console.log(data);
+            });
+        }
+    });
+    // 开始时间（以毫秒为单位）
+    let startTime = new Date().getTime();
+
+    // 更新计时器
+    function updateTimer() {
+        const currentTime = new Date().getTime();
+        const Remaining_Time = currentTime - startTime;
+
+        const seconds = Math.floor((Remaining_Time / 1000) % 60);
+        const minutes = Math.floor((Remaining_Time / 1000 / 60) % 60);
+        const hours = Math.floor((Remaining_Time / 1000 / 60 / 60) % 24);
+
+        const timerElement = document.getElementById('timer');
+        timerElement.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+        setTimeout(updateTimer, 1000); // 每秒更新一次
+    }
+
+    // 开始计时器
+    updateTimer();
+}

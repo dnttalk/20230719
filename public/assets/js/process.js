@@ -2,27 +2,27 @@ const net = require('net');
 
 const HOST = '192.168.1.101';
 const PORT = 8001;
-const R499 = '500000FFFF03000E00100001140000F30100AF01000000';
-const M300 = '500000FFFF03000D001000011401002C010090010010';
-
-const a = Buffer.from(R499, 'hex');
-const b = Buffer.from(M300, 'hex');
-
-
+const D4000 = '500000FFFF03000C00100001040000A00F00A80100';
+const a = Buffer.from(D4000, 'hex');
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 const client = net.connect(PORT, HOST, () => {
-
   client.write(a);
-  client.write(b);
   console.log('Command sent!');
+
 });
 
 client.on('data', (data) => {
-
   console.log('data received!');
-  console.log('接收到的数据:', Buffer.from(data, 'hex'));
+  const receivedData = data.toString('hex'); // 將Buffer轉換為十六進制字串
+  // 抓取倒數第3個字元
+  const lastIndex = receivedData.length - 1;
+  const thirdLastChar = receivedData.charAt(lastIndex - 2);
 
+  console.log('接收到的数据:', receivedData);
+  console.log('進行第幾步驟:', thirdLastChar);
 
 });
+
 client.on('error', (error) => {
   console.log(error);
 })
@@ -40,4 +40,3 @@ setTimeout(function () {
   console.log("Executed after 1 second");
   client.end();
 }, 1000);
-

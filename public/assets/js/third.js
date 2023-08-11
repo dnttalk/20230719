@@ -1,55 +1,48 @@
-$(function () {
-    checkBoxEvent()
-    nextPageEvent()
-    checkDoneEvent()
-});
+$(document).ready(function () {
+    const requiredSections = [
+        '#trx1', '#reagents', '#sample', '#ipcrm', '#96wpcrp',
+        '#trx3', '#12wpwr', '#dwp', '#ashcan', '#erc'
+    ];
 
-let checkBoxEvent = function () {
-    $('.checkbtn').click(function () {
-        $('#cancleChoose').attr('dataId', $(this).attr('id'))
-        $('#doneChoose').attr('dataId', $(this).attr('id'))
-    })
-    // if ($('#ck_trx1:checked').length > 0 && $('#ck_reagents:checked').length > 0 && $('#ck_sample:checked').length > 0 && $('#ck_ipm:checked').length > 0 && $('#ck_96wpp:checked').length > 0 && $('#ck_trx3:checked').length > 0 && $('#ck_12wpwr:checked').length > 0 && $('#ck_dwp:checked').length > 0 && $('#ck_ashcan:checked').length > 0 && $('#ck_erc:checked').length > 0) {
-    //     $('.nextPage').css('cursor', 'pointer')
-    //     $('.nextPage').css('background-color', 'rgb(0, 0, 204)')
-    //     $('.nextPage').css('color', 'white')
-    // } else {
-    //     $('.nextPage').css('cursor', 'not-allowed')
-    //     $('.nextPage').css('background-color', 'rgb(51, 204, 51)')
-    //     $('.nextPage').css('color', 'black')
-    // }
-}
+    function updateNextButtonState() {
+        const allSectionsActive = requiredSections.every(section => $(section).hasClass('active'));
+        const $nextPageButton = $('.nextPage');
 
-// 檢查是否全部按鈕都Active
-let checkEvent = function () {
-    if ($('#trx1').hasClass('active') && $('#reagents').hasClass('active') && $('#sample').hasClass('active') && $('#ipcrm').hasClass('active') && $('#96wpcrp').hasClass('active') && $('#trx3').hasClass('active') && $('#12wpwr').hasClass('active') && $('#dwp').hasClass('active') && $('#ashcan').hasClass('active') && $('#erc').hasClass('active')) {
-        $('.nextPage').css('cursor', 'pointer')
-        $('.nextPage').css('background-color', 'rgb(0, 0, 204)')
-        $('.nextPage').css('color', 'white')
-    } else {
-        $('.nextPage').css('cursor', 'not-allowed')
-        $('.nextPage').css('background-color', '#d8d8d8')
-        $('.nextPage').css('color', 'rgb(0, 176, 240)')
-    }
-}
-
-// 檢查項
-let checkDoneEvent = function () {
-    $('#cancleChoose').click(function () {
-        $(`#${$('#cancleChoose').attr('dataId')}`).removeClass('active')
-        checkEvent()
-    })
-    $('#doneChoose').click(function () {
-        $(`#${$('#cancleChoose').attr('dataId')}`).addClass('active')
-        checkEvent()
-    })
-}
-
-let nextPageEvent = function () {
-    $('.nextPage').css('cursor', 'not-allowed')
-    $('.nextPage').click(function () {
-        if ($('#trx1').hasClass('active') && $('#reagents').hasClass('active') && $('#sample').hasClass('active') && $('#ipcrm').hasClass('active') && $('#96wpcrp').hasClass('active') && $('#trx3').hasClass('active') && $('#12wpwr').hasClass('active') && $('#dwp').hasClass('active') && $('#ashcan').hasClass('active') && $('#erc').hasClass('active')) {
-            window.location.href = "/fifth";
+        if (allSectionsActive) {
+            $nextPageButton.css({
+                'cursor': 'pointer',
+                'background-color': 'rgb(0, 0, 204)',
+                'color': 'white'
+            });
+        } else {
+            $nextPageButton.css({
+                'cursor': 'not-allowed',
+                'background-color': '#d8d8d8',
+                'color': 'rgb(0, 176, 240)'
+            });
         }
-    })
-}
+    }
+
+    $('.checkbtn').click(function () {
+        const clickedId = $(this).attr('id');
+        $('#cancleChoose, #doneChoose').attr('dataId', clickedId);
+    });
+
+    $('#cancleChoose, #doneChoose').click(function () {
+        const dataId = $(this).attr('dataId');
+        $(`#${dataId}`).toggleClass('active');
+        updateNextButtonState();
+    });
+
+    $('.nextPage').click(function () {
+        if (requiredSections.every(section => $(section).hasClass('active'))) {
+            window.location.href = "/fifth";
+            $.get("/api/start/stepstart", function (data) {
+                console.log(data);
+            });
+        }
+    });
+
+    // 初始狀態設定
+    updateNextButtonState();
+});

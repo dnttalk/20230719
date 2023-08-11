@@ -6,7 +6,7 @@
         MPN
     </title>
     <%- include('./layout/head') -%>
-    <link rel='stylesheet' href='/assets/css/third.css' />
+        <link rel='stylesheet' href='/assets/css/third.css' />
 </head>
 
 
@@ -18,16 +18,21 @@
         <div class="row checkSOP">
             <div class="col border-3 border-solid">
 
-                <button type="button" id="trx1" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Tip rack X1</button>
+                <button type="button" id="trx1" class="checkbtn btn btn-secondary" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop">Tip rack X1</button>
             </div>
             <div class="col border-3 border-solid">
-                <button type="button" id="reagents" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Reagents</button>
-                <button type="button" id="sample" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Sample</button>
-                <button type="button" id="ipcrm" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Index PCR mix</button>
+                <button type="button" id="reagents" class="checkbtn btn btn-secondary" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop">Reagents</button>
+                <button type="button" id="sample" class="checkbtn btn btn-secondary" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop">Sample</button>
+                <button type="button" id="ipcrm" class="checkbtn btn btn-secondary" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop">Index PCR mix</button>
             </div>
             <div class="col border-3 border-solid">
 
-                <button type="button" id="96wpcrp" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <button type="button" id="96wpcrp" class="checkbtn btn btn-secondary" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop">
                     96 well PCR plate
                 </button>
             </div>
@@ -36,7 +41,8 @@
         <div class="row checkSOP">
             <div class="col border-3 border-solid">
 
-                <button type="button" id="trx3" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <button type="button" id="trx3" class="checkbtn btn btn-secondary" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop">
                     Tip rack X3
                 </button>
             </div>
@@ -48,12 +54,14 @@
             <div class="col border-3 boder-dashed"></div>
             <div class="col border-3 border-solid">
 
-                <button type="button" id="12wpwr" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">12 well plate
+                <button type="button" id="12wpwr" class="checkbtn btn btn-secondary" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop">12 well plate
                     with reagent</button>
             </div>
             <div class="col border-3 border-solid">
 
-                <button type="button" id="dwp" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <button type="button" id="dwp" class="checkbtn btn btn-secondary" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop">
                     Deep well
                     plate
                 </button>
@@ -61,7 +69,8 @@
             <div class="col">
                 <div class="done border-3 border-solid">
 
-                    <button type="button" id="ashcan" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Ashcan</button>
+                    <button type="button" id="ashcan" class="checkbtn btn btn-secondary" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">Ashcan</button>
                 </div>
             </div>
         </div>
@@ -70,7 +79,8 @@
             <div class="col border-empty"></div>
             <div class="col border-3 border-solid">
 
-                <button type="button" id="erc" class="checkbtn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <button type="button" id="erc" class="checkbtn btn btn-secondary" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop">
                     Empty racks
                     Cleaned
                 </button>
@@ -86,14 +96,15 @@
                 </a>
             </div>
             <div class="col-2">
-                <button type="button" class="changePage nextPage btn-primary border-5">
+                <button id="startstep" type="button" class="changePage nextPage btn-primary border-5">
                     <i class="fa-solid fa-caret-right"></i>
                 </button>
             </div>
         </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body text-center">
@@ -103,10 +114,12 @@
                         </div>
                         <div class="row">
                             <div class="col-6 text-start">
-                                <button id="cancleChoose" type="button" class="chooesBtn changePage btn-primary border-5" data-bs-dismiss="modal">X</button>
+                                <button id="cancleChoose" type="button"
+                                    class="chooesBtn changePage btn-primary border-5" data-bs-dismiss="modal">X</button>
                             </div>
                             <div class="col-6 text-end">
-                                <button id="doneChoose" type="button" class="chooesBtn changePage btn-primary border-5" data-bs-dismiss="modal">done</button>
+                                <button id="doneChoose" type="button" class="chooesBtn changePage btn-primary border-5"
+                                    data-bs-dismiss="modal">done</button>
                             </div>
                         </div>
                     </div>
@@ -119,7 +132,7 @@
         </div>
     </div>
     <%- include('./layout/js') -%>
-    <script src="/assets/js/third.js"></script>
+        <script src="/assets/js/third.js"></script>
 </body>
 
 </html>

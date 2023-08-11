@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>MPN</title>
     <%- include('./layout/head') -%>
-    <link rel="stylesheet" type="text/css" href="/assets/css/fifth.css">
+        <link rel="stylesheet" type="text/css" href="/assets/css/fifth.css">
 </head>
 
 <body>
@@ -17,7 +17,8 @@
                             <div class="col-8">
                                 <div class="overlap-group">
                                     <div class="OBJECTS">
-                                        <div class="overlap-2"><img class="img" alt="Element" src="/assets/img/--29@2x.png">
+                                        <div class="overlap-2"><img class="img" alt="Element"
+                                                src="/assets/img/--29@2x.png">
                                             <img class="element-2" alt="Element" src="/assets/img/---84.svg">
                                             <div class="element-wrapper">
                                                 <div class="div-wrapper">
@@ -74,66 +75,31 @@
                             </div>
                             <div class="col-4 text-center">
                                 <div class="row my-5">
-                                    <div class="element">Remaining Time: 00:00:00</div>
+                                    < <div class="element">Remaining Time: <span id="timer">00:00:00</span>
                                 </div>
-                                <div class="row">
-                                    <div class="col-6 py-5">
-                                        <button type="button" class="chooseBtn nextPage btn-primary border-5">
-                                            <i class="fa-solid fa-pause"></i>
-                                        </button>
-                                    </div>
-                                    <div class="col-6 py-5">
-                                        <button type="button" class="chooseBtn nextPage btn-primary border-5">
-                                            <i class="fa-solid fa-caret-right"></i>
-                                        </button>
-                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 py-5">
+                                    <button id="pause" type="button" class="chooseBtn nextPage btn-primary border-5">
+                                        <i class="fa-solid fa-pause"></i>
+                                    </button>
                                 </div>
-                                <div class="row">
-                                    <button type="button" class="btn btn-warning btn-confirm">End Program</button>
+                                <div class="col-6 py-5">
+                                    <button id="start" type="button" class="chooseBtn nextPage btn-primary border-5">
+                                        <i class="fa-solid fa-caret-right"></i>
+                                    </button>
                                 </div>
-
-
-                                <!-- <div class="overlap-3">
-                                    <div class="element-35">
-                                        <div class="overlap-group-4 btn-pause">
-                                            <img class="element-36" alt="Element" src="/assets/img/--10@2x.png">
-                                            <div class="text-wrapper-9 btn-pause-text">Pause</div>
-                                            <img class="element-37" alt="Element" src="/assets/img/---75.svg">
-                                            <img class="element-38" alt="Element" src="/assets/img/--28@2x.png">
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="overlap-4">
-                                    <div class="element-35">
-                                        <div class="overlap-5"><img class="element-36" alt="Element" src="/assets/img/--18@2x.png">
-                                            <div class="text-wrapper-9">Restart</div>
-                                        </div>
-                                    </div>
-                                    <img class="element-39" alt="Element" src="/assets/img/---78.svg">
-                                    <img class="element-40" alt="Element" src="/assets/img/---79.svg">
-                                </div>
-                                <div class="overlap-6">
-                                    <div class="overlap-wrapper">
-                                        <div class="end-of-program-wrapper btn-confirm">
-                                            <div class="end-of-program">
-                                                <div class="overlap-group-5">
-                                                    <div class="text-wrapper-10">End of</div>
-                                                    <div class="program"> program</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <img class="element-41" alt="Element" src="/assets/img/---80.svg">
-                                    <img class="element-42" alt="Element" src="/assets/img/---81.svg">
-                                </div> -->
+                            </div>
+                            <div class="row">
+                                <button type="button" class="btn btn-warning btn-confirm">End Program</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <img class="element-43" alt="Element" src="/assets/img/---1-1@2x.png">
             </div>
+            <img class="element-43" alt="Element" src="/assets/img/---1-1@2x.png">
         </div>
+    </div>
     </div>
 
     <div class="modal fade" id="EOPModal" tabindex="-1" aria-labelledby="EOPModalLabel" aria-hidden="true">
@@ -157,26 +123,9 @@
             </div>
         </div>
     </div>
-    <!-- <div class="modal fade" id="EOPModal" tabindex="-1" aria-labelledby="EOPModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="EOPModalLabel">Warning</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Confirm to end of the program
-                </div>
-                <div class="modal-footer">
-                    <button style="width: 80px;" type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancle</button>
-                    <button id="confirmPOE" style="width: 80px;" type="button" class="btn btn-primary">Confirm</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
 
     <%- include('./layout/js') -%>
-    <script src="/assets/js/fifth.js"></script>
+        <script src="/assets/js/fifthPage.js"></script>
 </body>
 
 </html>

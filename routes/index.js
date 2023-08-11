@@ -34,9 +34,6 @@ router.get('/login', pageController.loginPage);
 
 // API區段
 router.post('/api/user/login', loginController.login)
-// 20230718 修改 ==========================
-
-// 業主api從app.js 轉移到這 =================================
 // 示例路由处理程序，使用 apiUrl
 router.get('', (req, res) => {
     const apiUrl = req.path;
@@ -45,7 +42,8 @@ router.get('', (req, res) => {
     res.send('API URL: ' + apiUrl);
     console.log(apiUrl);
 });
-router.get('/api/start/open', async (req, res) => {
+//PCR開蓋
+router.get('/api/pcrlib/open', async (req, res) => {
     console.log(path.join(__dirname, '../public/assets/js/PCR_open.js'))
     var workerProcess = child_process.exec('node ' + path.join(__dirname, '../public/assets/js/PCR_open.js'), function (error, stdout, stderr) {
         if (error) {
@@ -58,16 +56,12 @@ router.get('/api/start/open', async (req, res) => {
     });
 
     await workerProcess.on('exit', function (code) {
-        console.log('子進程已退出，退出碼 ' + code);
+        console.log('子行程已退出，退出碼 ' + code);
     });
-    // res.json({ status: '下班囉~' })
     res.json({ message: 'PCR 開蓋' });
-    // const PCR_open = require('../public/assets/js/PCR_open.js');
-    // PCR_open.req;
-    // res.json({ message: 'PCR 開蓋' });
 });
-
-router.get('/api/start/close', async (req, res) => {
+//PCR關蓋
+router.get('/api/pcrlib/close', async (req, res) => {
     var workerProcess = child_process.exec('node ' + path.join(__dirname, '../public/assets/js/PCR_close.js'), function (error, stdout, stderr) {
         if (error) {
             console.log(error.stack);
@@ -77,23 +71,79 @@ router.get('/api/start/close', async (req, res) => {
         console.log('stdout: ' + stdout);
         console.log('stderr: ' + stderr);
     });
-
     await workerProcess.on('exit', function (code) {
         console.log('子進程已退出，退出碼 ' + code);
     });
-    // res.json({ status: '下班囉~' })
     res.json({ message: 'PCR 關蓋' });
-    // const PCR_close = require('../public/assets/js/PCR_close.js');
-    // PCR_close.req;
-    // res.json({ message: 'PCR 關蓋' });
 });
 
-router.get('/api/start/read', (req, res) => {
+//Step start
+router.get('/api/start/stepstart', async (req, res) => {
+    var workerProcess = child_process.exec('node ' + path.join(__dirname, '../public/assets/js/Step_Star.js'), function (error, stdout, stderr) {
+        if (error) {
+            console.log(error.stack);
+            console.log('Error code: ' + error.code);
+            console.log('Signal received: ' + error.signal);
+        }
+        console.log('stdout: ' + stdout);
+        console.log('stderr: ' + stderr);
+    });
+    await workerProcess.on('exit', function (code) {
+        console.log('子進程已退出，退出碼 ' + code);
+    });
+    res.json({ message: '機器開始' });
+});
+//M300
+router.get('/api/start/M300', async (req, res) => {
+    var workerProcess = child_process.exec('node ' + path.join(__dirname, '../public/assets/js/M300.js'), function (error, stdout, stderr) {
+        if (error) {
+            console.log(error.stack);
+            console.log('Error code: ' + error.code);
+            console.log('Signal received: ' + error.signal);
+        }
+        console.log('stdout: ' + stdout);
+        console.log('stderr: ' + stderr);
+    });
+    await workerProcess.on('exit', function (code) {
+        console.log('子進程已退出，退出碼 ' + code);
+    });
+    res.json({ message: '機器開始' });
+});
+//M301
+router.get('/api/start/M301', async (req, res) => {
+    var workerProcess = child_process.exec('node ' + path.join(__dirname, '../public/assets/js/M301.js'), function (error, stdout, stderr) {
+        if (error) {
+            console.log(error.stack);
+            console.log('Error code: ' + error.code);
+            console.log('Signal received: ' + error.signal);
+        }
+        console.log('stdout: ' + stdout);
+        console.log('stderr: ' + stderr);
+    });
+    await workerProcess.on('exit', function (code) {
+        console.log('子進程已退出，退出碼 ' + code);
+    });
+    res.json({ message: '機器開始' });
+});
+//process
+router.get('/api/start/process', async (req, res) => {
+    var workerProcess = child_process.exec('node ' + path.join(__dirname, '../public/assets/js/process.js'), function (error, stdout, stderr) {
+        if (error) {
+            console.log(error.stack);
+            console.log('Error code: ' + error.code);
+            console.log('Signal received: ' + error.signal);
+        }
+        console.log('stdout: ' + stdout);
+        console.log('stderr: ' + stderr);
+    });
+    await workerProcess.on('exit', function (code) {
+        console.log('子進程已退出，退出碼 ' + code);
+    });
+    res.json({ message: '機器開始' });
+});
+router.get('/api/start/step', (req, res) => {
     const read_head = require('../public/assets/js/read_head.js');
     read_head.req;
     res.json({ message: '槍頭' });
 });
-
-// 業主api從app.js 轉移到這 =================================
-
 module.exports = router;
