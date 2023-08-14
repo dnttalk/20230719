@@ -6,48 +6,26 @@ let intervalId = null;    // 計時器間隔的 ID
 $(function () {
     pauseEvent();
     poe();
-    ChangeStatus();
-    flashNumber(0); // 開始循環閃爍狀態數字
     setupActionButtons(); // 設定開始和暫停按鈕的點擊事件
-    startTimer(); // 開始計時器
+    startTimer();// 初始狀態下啟動計時器
+    flashNumber();
 });
 
-let statusElementMap = {
-    1: '#statusNumber1',
-    2: '#statusNumber2',
-    3: '#statusNumber3',
-    4: '#statusNumber4',
-    5: '#statusNumber5',
-    6: '#statusNumber6'
-};
-
-let flashNumber = function (count) {
-    if (count >= 5) {
-        return;
+let flashNumber = async function () {
+    if (processStatus == 1) {
+        $('#statusNumber1').fadeOut(100).fadeIn(100)
+    } else if (processStatus == 2) {
+        $('#statusNumber2').fadeOut(100).fadeIn(100)
+    } else if (processStatus == 3) {
+        $('#statusNumber3').fadeOut(100).fadeIn(100)
+    } else if (processStatus == 4) {
+        $('#statusNumber4').fadeOut(100).fadeIn(100)
+    } else if (processStatus == 5) {
+        $('#statusNumber5').fadeOut(100).fadeIn(100)
+    } else if (processStatus == 6) {
+        $('#statusNumber6').fadeOut(100).fadeIn(100)
     }
-
-    $(statusElementMap[processStatus]).fadeOut(500).fadeIn(500);
-
-    setTimeout(function () {
-        flashNumber(count + 1);
-    }, 1000);
-};
-
-let ChangeStatus = function () {
-    let cStatus = setInterval(function () {
-        flashNumber(0); // 開始循環閃爍狀態數字
-        if (processStatus < 7) {
-            processStatus++;
-        } else {
-            processStatus++;
-            clearInterval(cStatus);
-            $('#pcText').css('color', 'rgb(44, 235, 44)');
-            setTimeout(function () {
-                // window.location.href = "/report";
-            }, 3000);
-        }
-    }, 5000);
-};
+}
 
 let pauseEvent = function () {
     $('.btn-pause').on('click', function () {
@@ -109,7 +87,6 @@ function setupActionButtons() {
 
 function startTimer() {
     let startTime = Date.now();
-
     intervalId = setInterval(function () {
         if (!timerPaused) {
             const currentTime = Date.now();
@@ -122,8 +99,15 @@ function startTimer() {
             const timerElement = document.getElementById('timer');
             timerElement.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         }
+        $.get("/api/start/process", function (data) {
+            if (data.status) {
+                processStatus = parseInt(data.status)
+                console.log(data)
+                console.log(processStatus)
+            }
+        });
+        flashNumber();
     }, 1000);
 }
 
-// 初始狀態下啟動計時器
 startTimer();

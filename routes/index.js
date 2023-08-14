@@ -2,14 +2,14 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 const child_process = require('child_process');
+// child_process promise 宣告(給/api/start/process用)
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
 // 20230718 修改 ==========================
 // 頁面控制
 var pageController = require("../controller/pageController");
 var loginController = require("../controller/loginController");
 
-// router.get('/', function (req, res, next) {
-//   res.render('index', { title: 'Express' });
-// });
 
 // 頁面導向區塊 ===========================
 //loading過場頁面
@@ -127,19 +127,21 @@ router.get('/api/start/M301', async (req, res) => {
 });
 //process
 router.get('/api/start/process', async (req, res) => {
-    var workerProcess = child_process.exec('node ' + path.join(__dirname, '../public/assets/js/process.js'), function (error, stdout, stderr) {
-        if (error) {
-            console.log(error.stack);
-            console.log('Error code: ' + error.code);
-            console.log('Signal received: ' + error.signal);
+    let status = null
+    let message = null
+    try {
+        let { stdout, stderr } = await exec('node ' + path.join(__dirname, '../public/assets/js/process.js'))
+        if (stderr) {
+            message = stderr
+        } else {
+            let arr1 = stdout.split(/\r?\n/);
+            message = '取得狀態成功'
+            status = arr1[3].split('幾步驟: ')[1]
         }
-        console.log('stdout: ' + stdout);
-        console.log('stderr: ' + stderr);
-    });
-    await workerProcess.on('exit', function (code) {
-        console.log('子進程已退出，退出碼 ' + code);
-    });
-    res.json({ message: '機器開始' });
+    } catch (err) {
+        console.log('發生錯誤')
+    }
+    res.json({ status: status, message: message });
 });
 router.get('/api/start/step', (req, res) => {
     const read_head = require('../public/assets/js/read_head.js');
