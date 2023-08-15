@@ -125,6 +125,38 @@ router.get('/api/start/M301', async (req, res) => {
     });
     res.json({ message: '機器開始' });
 });
+//M44
+router.get('/api/start/M44', async (req, res) => {
+    var workerProcess = child_process.exec('node ' + path.join(__dirname, '../public/assets/js/M44.js'), function (error, stdout, stderr) {
+        if (error) {
+            console.log(error.stack);
+            console.log('Error code: ' + error.code);
+            console.log('Signal received: ' + error.signal);
+        }
+        console.log('stdout: ' + stdout);
+        console.log('stderr: ' + stderr);
+    });
+    await workerProcess.on('exit', function (code) {
+        console.log('子進程已退出，退出碼 ' + code);
+    });
+    res.json({ message: '機器開始' });
+});
+//M44
+router.get('/api/start/M45', async (req, res) => {
+    var workerProcess = child_process.exec('node ' + path.join(__dirname, '../public/assets/js/M45.js'), function (error, stdout, stderr) {
+        if (error) {
+            console.log(error.stack);
+            console.log('Error code: ' + error.code);
+            console.log('Signal received: ' + error.signal);
+        }
+        console.log('stdout: ' + stdout);
+        console.log('stderr: ' + stderr);
+    });
+    await workerProcess.on('exit', function (code) {
+        console.log('子進程已退出，退出碼 ' + code);
+    });
+    res.json({ message: '機器開始' });
+});
 //process
 router.get('/api/start/process', async (req, res) => {
     let status = null
@@ -134,9 +166,12 @@ router.get('/api/start/process', async (req, res) => {
         if (stderr) {
             message = stderr
         } else {
+            // 將 stdout 分行
             let arr1 = stdout.split(/\r?\n/);
             message = '取得狀態成功'
-            status = arr1[3].split('幾步驟: ')[1]
+            // 取得stdout 第五行
+            status = arr1[4].split('幾步驟: ')[1]
+            // console.log(arr1)
         }
     } catch (err) {
         console.log('發生錯誤')

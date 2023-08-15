@@ -24,8 +24,9 @@
                         arr1 = ['S502 Primer', 'S503 Primer', 'S505 Primer', 'S506 Primer', 'S507 Primer', 'S508 Primer', 'S510 Primer', 'S511 Primer']
                         arr2 = ['N701 Primer', 'N702 Primer', 'N703 Primer', 'N704 Primer', 'N705 Primer', 'N706 Primer', 'N707 Primer', 'N710 Primer', 'N711 Primer', 'N712 Primer', 'N714 Primer', 'N715 Primer']
                     </script>
-                    <h1>Sample Number: <input type="number" max="8" min="1" value="1" id="sampleNumberInput"
-                            oninput="if(value<=0)value=1;if(value>8)value=8;" inputmode="numeric"></h1>
+                    <h1>Sample Number: <input type="number" pattern="\d*" max="8" min="1" value="1"
+                            id="sampleNumberInput" oninput="if(value<=0)value=1;if(value>8)value=8;"
+                            inputmode="numeric"></h1>
                     <% }else if(id=='leukemia' ){ %>
                         <script>
                             arr1 = ['S505 Primer', 'S506 Primer', 'S507 Primer', 'S508 Primer']
@@ -42,17 +43,10 @@
                                     oninput="if(value<=0)value=1;if(value>24)value=24;"></h1>
                             <% } %>
             </div>
-            <!-- 模态框 -->
-            <div id="modal1" class="modal1">
-                <button id="snAdd10" type="button" class="asbtn changePage btn-primary border-5">+10</button>
-                <button id="snAdd1" type="button" class="asbtn changePage btn-primary border-5">+1</button>
-                <button id="snSub1" type="button" class="asbtn changePage btn-primary border-5">-1</button>
-                <button id="snSub10" type="button" class="asbtn changePage btn-primary border-5">-10</button>
-                <button id="cancleChoose" type="button" class="chooesBtn changePage btn-primary border-5"
-                    data-bs-dismiss="modal">X</button>
+            <div class="modal fade" id="keyboard" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <!-- 这里添加键盘按键 -->
             </div>
-
-
         </div>
         <div id="btn-login" class="ShowUser"></div>
         <div class="row">

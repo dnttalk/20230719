@@ -43,3 +43,15 @@ const exportCSV = function () {
         download(csv, 'download.csv');
     })
 }
+$('#Finish').on('click', function () {
+    $.get("/api/start/M301", function (data) {
+        console.log(data);
+    });
+    $.get("/api/start/M44", function (data) {
+        console.log(data);
+    });
+    $.get("/api/start/M45", function (data) {
+        console.log(data);
+    });
+    window.location.href = "/";
+});

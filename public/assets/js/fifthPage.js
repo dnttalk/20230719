@@ -11,19 +11,19 @@ $(function () {
     flashNumber();
 });
 
-let flashNumber = async function () {
+let flashNumber = function () {
     if (processStatus == 1) {
-        $('#statusNumber1').fadeOut(100).fadeIn(100)
+        $('#statusNumber1').fadeOut(500).fadeIn(500)
     } else if (processStatus == 2) {
-        $('#statusNumber2').fadeOut(100).fadeIn(100)
+        $('#statusNumber2').fadeOut(500).fadeIn(500)
     } else if (processStatus == 3) {
-        $('#statusNumber3').fadeOut(100).fadeIn(100)
+        $('#statusNumber3').fadeOut(500).fadeIn(500)
     } else if (processStatus == 4) {
-        $('#statusNumber4').fadeOut(100).fadeIn(100)
+        $('#statusNumber4').fadeOut(500).fadeIn(500)
     } else if (processStatus == 5) {
-        $('#statusNumber5').fadeOut(100).fadeIn(100)
+        $('#statusNumber5').fadeOut(500).fadeIn(500)
     } else if (processStatus == 6) {
-        $('#statusNumber6').fadeOut(100).fadeIn(100)
+        $('#statusNumber6').fadeOut(500).fadeIn(500)
     }
 }
 
@@ -51,6 +51,15 @@ let poe = function () {
         myModal.show();
     });
     $('#confirmPOE').on('click', function () {
+        $.get("/api/start/M301", function (data) {
+            console.log(data);
+        });
+        $.get("/api/start/M44", function (data) {
+            console.log(data);
+        });
+        $.get("/api/start/M45", function (data) {
+            console.log(data);
+        });
         window.location.href = "/";
     });
 };
@@ -65,29 +74,28 @@ function performAction(apiEndpoint, requiredSections) {
 
 function setupActionButtons() {
     $('#start').click(function () {
-        $.get("/api/start/M300", function (data) {
-            console.log(data);
-        });
         timerPaused = false; // 恢復計時器
         startTimer();  // 重新啟動計時器
         // 其他操作，例如觸發開始 API 端點
-
+        $.get("/api/start/M300", function (data) {
+            console.log(data);
+        });
     });
 
     $('#pause').click(function () {
-        $.get("/api/start/M301", function (data) {
-            console.log(data);
-        });
         timerPaused = true;
         clearInterval(intervalId);  // 清除計時器間隔
         pausedTime = Date.now() - (startTime + pausedTime); // 計算暫停的時間
         // 其他操作，例如觸發暫停 API 端點
+        $.get("/api/start/M301", function (data) {
+            console.log(data);
+        });
     });
 }
 
 function startTimer() {
     let startTime = Date.now();
-    intervalId = setInterval(function () {
+    intervalId = setInterval(async function () {
         if (!timerPaused) {
             const currentTime = Date.now();
             const elapsedTime = currentTime - startTime;
@@ -103,11 +111,12 @@ function startTimer() {
             if (data.status) {
                 processStatus = parseInt(data.status)
                 console.log(data)
-                console.log(processStatus)
+            }
+            if (processStatus === 20) {
+
+                window.location.href = "/report";
             }
         });
         flashNumber();
     }, 1000);
 }
-
-startTimer();

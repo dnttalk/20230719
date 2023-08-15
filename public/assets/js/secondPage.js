@@ -134,33 +134,3 @@ let sampleNumberUpdateEvent = function () {
         enableObj($('#sampleNumberInput').val())
     })
 }
-
-
-function showNumberKeyboard() {
-    // 創建一個數字鍵盤輸入框
-    const numberInput = document.getElementById('numberInput');
-    const keyboardInput = document.createElement('input');
-    keyboardInput.type = 'number';
-    keyboardInput.max = '8';
-    keyboardInput.min = '1';
-    keyboardInput.value = numberInput.value; // 複製現有輸入框的值
-    keyboardInput.style.position = 'absolute';
-    keyboardInput.style.top = numberInput.offsetTop + numberInput.offsetHeight + 'px';
-    keyboardInput.style.left = numberInput.offsetLeft + 'px';
-
-    // 當數字鍵盤輸入框的值改變時，同步更新原輸入框的值
-    keyboardInput.addEventListener('input', () => {
-        numberInput.value = keyboardInput.value;
-    });
-
-    // 將數字鍵盤輸入框添加到body中
-    document.body.appendChild(keyboardInput);
-
-    // 聚焦到數字鍵盤輸入框
-    keyboardInput.focus();
-
-    // 在失去焦點時，移除數字鍵盤輸入框
-    keyboardInput.addEventListener('blur', () => {
-        document.body.removeChild(keyboardInput);
-    });
-}

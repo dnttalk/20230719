@@ -14,12 +14,13 @@ const client = net.connect(PORT, HOST, () => {
 client.on('data', (data) => {
   console.log('data received!');
   const receivedData = data.toString('hex'); // 將Buffer轉換為十六進制字串
-  // 抓取倒數第3個字元
+  // 抓取倒數第3+4個字元
   const lastIndex = receivedData.length - 1;
-  const thirdLastChar = receivedData.charAt(lastIndex - 2);
-
+  const thirdLastChar = receivedData.charAt(lastIndex - 3) + receivedData.charAt(lastIndex - 2);
+  const decimalValue = parseInt(thirdLastChar, 16);
+  console.log(decimalValue);  // 打印十进制值
   console.log('接收到的数据:', receivedData);
-  console.log('進行第幾步驟:', thirdLastChar);
+  console.log('進行第幾步驟:', decimalValue);
 
 });
 

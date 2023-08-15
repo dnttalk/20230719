@@ -53,7 +53,7 @@ let ChangeStatus = function () {
             $('#popMessage').text('頁面正在轉跳...')
             setTimeout(function () {
                 window.location.href = "/";
-            }, 3000)
+            }, 1000)
 
         }
     }, 5000)

@@ -30,11 +30,7 @@ async function connectAndSendData() {
 
         console.log('接收到的数据:', receivedData);
         console.log('進行第幾步驟:', thirdLastChar);
-        if (thirdLastChar === '4') {
-          console.log('接收到的数据中包含 "4"，终止连接。');
-          client.end(); // 关闭连接
-          return;
-        }
+
         // 延遲 1 秒後發送第二組數據
         delay(1000)
           .then(() => {
