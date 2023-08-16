@@ -12,27 +12,27 @@ let flashNumber = async function () {
     let count = 0
     while (count < 5) {
         if (processStatus == 1) {
-            $('#oe1').fadeOut(500).fadeIn(500)
+            $('#oe1').fadeOut(100).fadeIn(100)
             $('#oe1').promise().done(function () {
                 $('#oe1').addClass('active')
             });
         } else if (processStatus == 2) {
-            $('#oe2').fadeOut(500).fadeIn(500)
+            $('#oe2').fadeOut(100).fadeIn(100)
             $('#oe2').promise().done(function () {
                 $('#oe2').addClass('active')
             });
         } else if (processStatus == 3) {
-            $('#oe3').fadeOut(500).fadeIn(500)
+            $('#oe3').fadeOut(100).fadeIn(100)
             $('#oe3').promise().done(function () {
                 $('#oe3').addClass('active')
             });
         } else if (processStatus == 4) {
-            $('#oe4').fadeOut(500).fadeIn(500)
+            $('#oe4').fadeOut(100).fadeIn(100)
             $('#oe4').promise().done(function () {
                 $('#oe4').addClass('active')
             });
         } else if (processStatus == 5) {
-            $('#oe5').fadeOut(500).fadeIn(500)
+            $('#oe5').fadeOut(100).fadeIn(100)
             $('#oe5').promise().done(function () {
                 $('#oe5').addClass('active')
             });
