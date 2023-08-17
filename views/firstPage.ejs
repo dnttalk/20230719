@@ -1,53 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>第一頁</title>
+    <!-- Include CSS -->
+    <link rel="stylesheet" href="/assets/css/firstpage.css">
+    <!-- Include common head content -->
     <%- include('./layout/head') -%>
-        <link rel="stylesheet" href="/assets/css/firstpage.css" />
-
 </head>
 
 <body>
     <div class="container text-center firstpage-layout">
-        <div class="row">
-            <a class="midBtn" href="/second?id=leukemia"><button id="btn-la" type="button"
-                    class="fbtn btn btn-primary border-5">Leukemia</button></a>
+        <div class="half-container">
+            <button id="projectButton" class="ngs-button">NGS Library Prep</button>
         </div>
-        <div class="row">
-            <a class="midBtn" href="/second?id=mpn"><button id="btn-mpn" type="button"
-                    class="fbtn btn btn-primary border-5">MPN</button></a>
+        <div id="popup" class="popup">
+            <!-- Use a loop to generate project option buttons -->
+            <% const projects=["Leukemia", "MPN" , "TP53" ]; %>
+                <% for (const project of projects) { %>
+                    <button class="projectOptionButton" data-project="<%= project %>">
+                        <%= project %>
+                    </button>
+                    <% } %>
         </div>
-        <div class="row">
-            <a class="midBtn" href="/second?id=tp53"><button id="btn-tp53" type="button"
-                    class="fbtn btn btn-primary border-5">TP53</button></a>
-        </div>
+        <button type="button" class="changePage nextPage btn-primary border-5">
+            <i class="fa-solid fa-caret-right"></i>
+        </button>
     </div>
-
-    <div class="siderbar">
-        <div class="row">
-            <a href="/login"><button id="btn-login" type="button"
-                    class="fbtn btn btn-primary border-5">Login</button></a>
-        </div>
-
-        <!-- PCR button -->
-        <div class="row">
-            <button id="pcrBtn" class="fbtn btn btn-primary border-5">PCR unload</button>
-        </div>
-        <div class="row">
-            <a href="/history"><button id="btn-history" type="button"
-                    class="fbtn btn btn-primary border-5">History</button></a>
-        </div>
-        <div class="row">
-            <button id="btn-calibration" type="button" class="fbtn btn btn-primary border-5">Calibration</button>
-        </div>
-        <div class="row">
-            <a href="#"><button id="btn-calibration" type="button" class="fbtn btn btn-primary border-5"><img
-                        style="width: 50px;" src="/assets/img/1119298.svg"></button></a>
-        </div>
-        <div class="row">
-            <button type="button" class="fbtn btn btn-primary border-5" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">Exit</button>
+    <div class="half-container">
+        <div class="siderbar">
+            <!-- Create a list of sidebar buttons -->
+            <ul>
+                <li><button id="pcrBtn" class="fbtn btn btn-primary border-5">PCR lib unload</button></li>
+                <li><a href="/history" class="fbtn btn btn-primary border-5">History</a></li>
+                <li><button id="btn-calibration" class="fbtn btn btn-primary border-5">Setting</button></li>
+                <li><button type="button" class="fbtn btn btn-primary border-5" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">Exit</button></li>
+            </ul>
         </div>
     </div>
     <!-- Modal -->
@@ -72,6 +63,8 @@
             </div>
         </div>
     </div>
+
+    <!-- Include common JavaScript files -->
     <%- include('./layout/js') -%>
         <script src="/assets/js/firstpage.js"></script>
         <script src="/assets/js/PCR_open.js"></script>

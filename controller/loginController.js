@@ -5,7 +5,7 @@ const path = require('path');
 let login = async (req, res) => {
     try {
         const { user, pwd } = req.body;
-        const dataPath = path.join(__dirname, '../data/data.json');
+        const dataPath = path.join(__dirname, '../data/user.json');
         fs.readFile(dataPath, 'utf-8', (error, data) => {
             if (error) {
                 res.send("<h1 style='color:orange'>! 伺服器錯誤</h1>" + error);
@@ -29,4 +29,3 @@ let login = async (req, res) => {
 module.exports = {
     login: login,
 }
-// 20230718修改================================
