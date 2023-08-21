@@ -1,110 +1,3 @@
-<!-- <!DOCTYPE html>
-<html>
-
-<head>
-    <title>
-        MPN
-    </title>
-    <%- include('./layout/head') -%>
-    <link rel='stylesheet' href='/assets/css/report.css' />
-</head>
-
-
-<body>
-    <div class="container text-center secondpage-layout">
-        <div class="row mt-5 mb-5">
-            <h1>Sample Number: <span>22</span></h1>
-        </div>
-        <div class="row">
-            <table id="reportTable" class="demo">
-                <tbody>
-                    <tr>
-                        <td>Sample Name</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>Index Name</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                <tbody>
-
-            </table>
-            <div class="row mt-5">
-                <div class="col-md-6">
-                    <h2>Program completed.</h2>
-                </div>
-                <div class="col-md-6">
-                    <button type="button" class="btnETE btn-primary border-5">Export to Excel</button>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <a href="/"><button type="button" id="Finish" class="nextPage btn-primary border-5">Finish</button></a>
-            </div>
-        </div>
-
-    </div>
-    <%- include('./layout/js') -%>
-    <script src="/assets/js/report.js"></script>
-</body>
-
-</html> -->
-
 <!DOCTYPE html>
 <html>
 
@@ -115,22 +8,52 @@
     <%- include('./layout/head') -%>
     <link rel='stylesheet' href='/assets/css/second.css' />
     <link rel='stylesheet' href='/assets/css/secondCheck.css' />
-    <link rel='stylesheet' href='/assets/css/report.css' />
+
 </head>
 
 
 <body>
     <div class="fluid-container text-center secondpage-layout">
         <div class="row">
-            <img id="processImg" src="/assets/img/process6.png" alt="進度條">
+            <img id="processImg" src="/assets/img/process3.png" alt="進度條">
         </div>
         <div class="currentlyModelContainer">
             <p id="currentlyModelName">MPN</p>
             <p id="btn-login"></p>
         </div>
         <div class="row">
+            <div class="col-2">
+                <div class="row processContainer">
+                    <img src="/assets/img/secondPageProcess2.png" alt="目前步驟">
+                </div>
+                <div class="row">
+                    <script>
+                        let arr1 = [];
+                        let arr2 = [];
+                    </script>
+                    <% if(id=='mpn' ){ %>
+                    <script>
+                        arr1 = ['S502', 'S503', 'S505', 'S506', 'S507', 'S508', 'S510', 'S511']
+                        arr2 = ['N701', 'N702', 'N703', 'N704', 'N705', 'N706', 'N707', 'N710', 'N711', 'N712', 'N714', 'N715']
+                    </script>
+                    <h1>Samples: <input type="number" pattern="\d*" max="8" min="1" value="1" id="sampleNumberInput" disabled oninput="if(value<=0)value=1;if(value>8)value=8;" inputmode="numeric"></h1>
+                    <% }else if(id=='leukemia' ){ %>
+                    <script>
+                        arr1 = ['S505', 'S506', 'S507', 'S508']
+                        arr2 = ['i701', 'i707', 'i708', 'i709', 'i710', 'i711', 'i712']
+                    </script>
+                    <h1>Samples: <input type="number" max="22" min="1" value="1" id="sampleNumberInput" disabled oninput="if(value<=0)value=1;if(value>22)value=22;"></h1>
+                    <% }else{ %>
+                    <script>
+                        arr1 = ['S502', 'S503', 'S505', 'S506', 'S507', 'S508', 'S510', 'S511']
+                        arr2 = ['N716', 'N718', 'N719', 'N720', 'N721', 'N722', 'N723', 'N724', 'N726', 'N727', 'N728', 'N729']
+                    </script>
+                    <h1>Samples: <input type="number" max="24" min="1" value="1" id="sampleNumberInput" disabled oninput="if(value<=0)value=1;if(value>24)value=24;"></h1>
+                    <% } %>
+                </div>
+            </div>
             <div class="col-10">
-                <table id="reportTable" class="demo" style="border-collapse:collapse;border: 5px solid rgb(65, 113, 156);" rules="all" cellpadding='5' ;>
+                <table class="demo" style="border-collapse:collapse;border: 5px solid rgb(65, 113, 156);" rules="all" cellpadding='5' ;>
                     <tbody>
                         <tr>
                             <td></td>
@@ -325,17 +248,16 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-2">
-                <button id="btnETE" type="button" class="changePage nextPage btn-primary border-5">
-                    Copy to Excel
-                </button>
-            </div>
+
         </div>
         <div class="row mt-5 justify-content-between">
             <div class="col-2">
+                <button type="button" class="changePage prevPage btn-primary border-5">
+                    <i class="fa-solid fa-caret-left"></i>
+                </button>
             </div>
             <div class="col-2">
-                <button id="Finish" type="button" class="changePage nextPage btn-primary border-5">
+                <button type="button" class="changePage nextPage btn-primary border-5">
                     <i class="fa-solid fa-caret-right"></i>
                 </button>
             </div>
@@ -343,7 +265,7 @@
     </div>
 
     <%- include('./layout/js') -%>
-    <script src="/assets/js/report.js"></script>
+    <script src="/assets/js/secondCheckPage.js"></script>
 </body>
 
 </html>

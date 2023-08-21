@@ -18,6 +18,8 @@ router.get('/loading', pageController.loadingPage);
 router.get('/', pageController.firstPage);
 //第二層
 router.get('/second', pageController.secondPage);
+//第二層檢查
+router.get('/secondCheck', pageController.secondCheckPage);
 //第三層(勾選層 + 確認層)
 router.get('/third', pageController.thirdPage);
 //第五層(進度層)
@@ -33,6 +35,7 @@ router.get('/login', pageController.loginPage);
 // 頁面導向區塊 ===========================
 
 // API區段
+router.post('/api/user/register', loginController.register)
 router.post('/api/user/login', loginController.login)
 // 示例路由处理程序，使用 apiUrl
 router.get('', (req, res) => {

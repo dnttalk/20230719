@@ -34,8 +34,9 @@ const download = function (text, fileName) {
 };
 
 const exportCSV = function () {
-    $('.btnETE').on('click', function () {
+    $('#btnETE').on('click', function () {
         let table = document.getElementById('reportTable');
+        console.log('123')
         // Export to csv
         let csv = toCsv(table);
 

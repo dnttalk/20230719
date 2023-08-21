@@ -4,7 +4,7 @@ let processStatus = 1
 $(function () {
     // 狀態改變
     ChangeStatus()
-    flashNumber()
+    // flashNumber()
 });
 
 

@@ -1,11 +1,12 @@
 // 20230718修改================================
 const fs = require('fs');
 const path = require('path');
+const dataPath = path.join(__dirname, '../data/user.json');
 
 let login = async (req, res) => {
     try {
         const { user, pwd } = req.body;
-        const dataPath = path.join(__dirname, '../data/user.json');
+
         fs.readFile(dataPath, 'utf-8', (error, data) => {
             if (error) {
                 res.send("<h1 style='color:orange'>! 伺服器錯誤</h1>" + error);
@@ -26,6 +27,32 @@ let login = async (req, res) => {
     }
 }
 
+let register = async (req, res) => {
+    try {
+        fs.readFile(dataPath, 'utf-8', (error, data) => {
+            let arr = JSON.parse(data)
+            let userObj = arr.find(obj => obj.user === req.body.ruser)
+            if (userObj) {
+                res.json({ status: 2, message: 'User Exist' })
+            } else {
+                if (req.body.rpwd == req.body.rcpwd) {
+                    arr.push({ user: req.body.ruser, pwd: req.body.rpwd })
+                    let data = JSON.stringify(arr)
+                    fs.writeFileSync(dataPath, data);
+                    res.json({ status: 1, message: 'Register Success' })
+                } else {
+                    res.json({ status: 1, message: 'Confirm Password Not Same' })
+                }
+
+            }
+        })
+    } catch (err) {
+        console.log(err)
+        res.json({ status: 0, message: 'Server Error' })
+    }
+}
+
 module.exports = {
     login: login,
+    register: register,
 }

@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Inter:700,400");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
 
 * {
     -webkit-font-smoothing: antialiased;
@@ -38,7 +37,6 @@ a {
     flex-direction: row;
     justify-content: center;
     width: 100%;
-    background-color: rgb(234, 234, 234);
 }
 
 .frame .div {
@@ -62,60 +60,46 @@ a {
 .frame .element {
     height: 51px;
     font-weight: bold;
-    font-size: 40px;
-    margin-top: 78px;
+    font-size: 33px;
 }
 
 
 .frame .img {
     height: 317px;
-    left: 115px;
-    position: relative;
-    top: 213px;
+    left: 96px;
+    position: absolute;
+    top: 140px;
     width: 159px;
-    scale: 2;
+    scale: 1.5;
 }
 
 .frame .element-2 {
     height: 173px;
-    left: -77px;
-    position: relative;
-    top: 120px;
+    left: 79px;
+    position: absolute;
+    top: 212px;
     width: 87px;
-    scale: 2;
+    scale: 1.5;
 }
 
 .frame .element-wrapper {
     height: 22px;
     left: 26px;
     position: absolute;
-    top: 346px;
+    top: 272px;
     width: 42px;
-    scale: 2;
-}
-
-.frame .div-wrapper {
-    height: 22px;
-    position: relative;
-    width: 44px;
-}
-
-.frame .text-wrapper {
-    color: #0f0f0f;
-    font-family: "Inter", Helvetica;
-    font-size: 17.9px;
-    font-weight: 700;
-    letter-spacing: 0;
-    line-height: normal;
+    scale: 1.5;
+    font-weight: bold;
+    font-size: 28px;
 }
 
 .frame .element-3 {
     height: 63px;
-    left: 328px;
+    left: 273px;
     position: absolute;
-    top: 3px;
+    top: 15px;
     width: 222px;
-    scale: 1.2;
+    scale: 1.4;
 }
 
 .frame .element-4 {
@@ -127,45 +111,36 @@ a {
 }
 
 .frame .text-wrapper-2 {
-    color: #ffffff;
+    color: #000000;
     font-family: "Inter", Helvetica;
     font-size: 9.3px;
     font-weight: 700;
-    left: -3px;
+    left: -105px;
     letter-spacing: 0;
     line-height: normal;
     position: relative;
-    top: 0;
+    top: 15px;
     white-space: pre-wrap;
-    scale: 1.8;
+    scale: 1.6;
 }
 
 .frame .element-6 {
     height: 49px;
-    left: 228px;
+    left: 180px;
     position: absolute;
     top: 61px;
     width: 41px;
-    scale: 2;
-}
-
-.frame .overlap-group-wrapper {
-    height: 57px;
-    left: 259px;
-    position: absolute;
-    top: 5px;
-    width: 59px;
-    scale: 2;
+    scale: 1.2;
 }
 
 .frame .overlap-group-2 {
-    background-image: url(/assets/img/---2.svg);
     background-size: 100% 100%;
     height: 48px;
-    left: 5px;
+    left: -119px;
     position: relative;
-    top: 5px;
+    top: 25px;
     width: 48px;
+    scale: 1.5;
 }
 
 .frame .text-wrapper-3 {
@@ -182,141 +157,143 @@ a {
 
 .frame .element-7 {
     height: 63px;
-    left: 493px;
+    left: 403px;
     position: absolute;
-    top: 419px;
+    top: 329px;
     width: 222px;
-    scale: 1.2;
+    scale: 1.4;
 }
 
 .frame .element-8 {
     height: 11px;
-    left: 494px;
+    left: 468px;
     position: absolute;
-    top: 157px;
+    top: 118px;
     width: 64px;
 }
 
 
 .frame .element-11 {
     height: 62px;
-    left: 324px;
+    left: 247px;
     position: absolute;
-    top: 137px;
+    top: 114px;
     width: 93px;
-    scale: 2;
+    scale: 1.2;
 }
 
 .frame .element-12 {
     height: 63px;
-    left: 493px;
+    left: 405px;
     position: absolute;
-    top: 291px;
+    top: 222px;
     width: 222px;
-    scale: 1.2;
+    scale: 1.4;
 }
 
 .frame .element-50 {
     height: 63px;
-    left: 436px;
+    left: 355px;
     position: absolute;
-    top: 560px;
+    top: 434px;
     width: 222px;
-    scale: 1.2;
+    scale: 1.4;
 }
 
 .frame .element-13 {
     height: 20px;
-    left: 575px;
+    left: 514px;
     position: absolute;
-    top: 308px;
+    top: 223px;
     width: 133px;
 }
 
 .frame .element-51 {
     height: 20px;
-    left: 575px;
+    left: 471px;
     position: absolute;
-    top: 443px;
+    top: 338px;
     width: 133px;
 }
 
 
 .frame .element-18 {
     height: 68px;
-    left: 377px;
+    left: 289px;
     position: absolute;
-    top: 289px;
+    top: 221px;
     width: 97px;
-    scale: 2;
+    scale: 1.2;
 }
 
 .frame .element-52 {
     height: 68px;
-    left: 376px;
+    left: 287px;
     position: absolute;
-    top: 415px;
+    top: 327px;
     width: 97px;
-    scale: 2;
+    scale: 1.2;
 }
 
 .frame .element-19 {
     height: 63px;
-    left: 449px;
+    left: 363px;
     position: absolute;
-    top: 135px;
+    top: 110px;
     width: 222px;
-    scale: 1.2;
+    scale: 1.4;
 }
 
 .frame .element-20 {
     height: 11px;
-    left: 506px;
+    left: 477px;
     position: absolute;
-    top: 577px;
+    top: 435px;
     width: 110px;
 }
 
 .frame .element-23 {
     height: 68px;
-    left: 324px;
+    left: 243px;
     position: absolute;
-    top: 556px;
+    top: 431px;
     width: 95px;
-    scale: 2;
+    scale: 1.2;
 }
 
 .frame .element-24 {
     height: 63px;
-    left: 343px;
+    left: 263px;
     position: absolute;
-    top: 674px;
-    scale: 1.2;
+    top: 520px;
     width: 222px;
+    scale: 1.4;
 }
 
 .frame .element-25 {
     height: 22px;
-    left: 408px;
+    left: 381px;
     position: absolute;
-    top: 696px;
+    top: 529px;
     width: 120px;
 }
 
 .frame .element-28 {
     height: 79px;
-    left: 242px;
+    left: 169px;
     position: absolute;
-    top: 631px;
+    top: 493px;
     width: 70px;
-    scale: 2;
+    scale: 1.2;
 }
 
 .frame .element-29 {
     height: 96px;
     width: 87px;
-    margin: -4px -168px;
-    scale: 2;
+    scale: 1.6;
+    position: absolute;
+    top: 198px;
+    left: 79px;
 }
 
 .overlap-2 {
@@ -328,12 +305,12 @@ a {
     font-family: "Inter", Helvetica;
     font-size: 32.7px;
     font-weight: 400;
-    left: 386px;
+    left: 295px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
-    top: 143px;
-    scale: 2;
+    top: 124px;
+    scale: 1.2;
 }
 
 .frame .text-wrapper-6 {
@@ -341,12 +318,12 @@ a {
     font-family: "Inter", Helvetica;
     font-size: 32.7px;
     font-weight: 400;
-    left: 435px;
+    left: 335px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
-    top: 303px;
-    scale: 2;
+    top: 234px;
+    scale: 1.2;
 }
 
 .frame .text-wrapper-44 {
@@ -354,12 +331,12 @@ a {
     font-family: "Inter", Helvetica;
     font-size: 32.7px;
     font-weight: 400;
-    left: 279px;
+    left: 198px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
-    top: 682px;
-    scale: 2;
+    top: 532px;
+    scale: 1.2;
 }
 
 .frame .text-wrapper-7 {
@@ -367,12 +344,12 @@ a {
     font-family: "Inter", Helvetica;
     font-size: 32.7px;
     font-weight: 400;
-    left: 433px;
+    left: 332px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
-    top: 430px;
-    scale: 2;
+    top: 341px;
+    scale: 1.2;
 }
 
 .frame .text-wrapper-8 {
@@ -380,12 +357,12 @@ a {
     font-family: "Inter", Helvetica;
     font-size: 32.7px;
     font-weight: 400;
-    left: 378px;
+    left: 286px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
-    top: 572px;
-    scale: 2;
+    top: 446px;
+    scale: 1.2;
 }
 
 .frame .overlap-3,
@@ -558,6 +535,11 @@ a {
     color: rgb(0, 176, 240) !important;
 }
 
+.chooseBtn.active {
+    color: rgb(0, 176, 240) !important;
+}
+
+
 .chooseBtn {
     width: 60px;
     height: 60px;
@@ -565,7 +547,7 @@ a {
     --color: #000000;
     --background-color: #d8d8d8;
     --border-color: darken(#d8d8d8, 7.5%);
-    color: rgb(0, 176, 240);
+    color: rgb(114, 114, 114);
     font-family: inherit;
     background-color: var(--background-color);
     padding: $btn-padding;
@@ -612,5 +594,5 @@ a {
     font-size: 32px;
     letter-spacing: 1.5px;
     font-weight: bold;
-    margin-top: 7em;
+    margin-top: 5em;
 }

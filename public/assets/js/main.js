@@ -4,6 +4,7 @@ $(function () {
         $.removeCookie("user");
         location.href = '/login'
     })
+    getCurrentlyModel()
 });
 
 let checkUser = function () {
@@ -23,7 +24,7 @@ let checkUser = function () {
             }
         } else {
             if (typeof $.cookie('user') == 'undefined') {
-                // location.href = '/login'
+                location.href = '/login'
             } else {
                 $('#btn-login').text('User:' + $.cookie('user'))
                 $('#btn-login').prop('disabled', true)
@@ -31,10 +32,34 @@ let checkUser = function () {
         }
     } else {
         if (typeof $.cookie('user') == 'undefined') {
-            // location.href = '/login'
+            location.href = '/login'
         } else {
             $('#btn-login').text('User:' + $.cookie('user'))
             $('#btn-login').prop('disabled', true)
         }
     }
 }
+
+let getCurrentlyModel = function () {
+    let id = getUrlParameter('id')
+    if (id) {
+        $('#currentlyModelName').text(id.toUpperCase())
+    }
+
+}
+
+let getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+    return false;
+};

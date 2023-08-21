@@ -3,6 +3,8 @@ let intervalObj1 = null;
 let processStatus = 1;
 let timerPaused = false;  // 初始狀態為計時器運行
 let intervalId = null;    // 計時器間隔的 ID
+let startTime = Date.now();
+let pausedTime = null
 $(function () {
     pauseEvent();
     poe();
@@ -74,37 +76,44 @@ function performAction(apiEndpoint, requiredSections) {
 
 function setupActionButtons() {
     $('#start').click(function () {
-        timerPaused = false; // 恢復計時器
-        startTimer();  // 重新啟動計時器
-        // 其他操作，例如觸發開始 API 端點
-        $.get("/api/start/M300", function (data) {
-            console.log(data);
-        });
+        if ($('#start').hasClass('active')) {
+            $('#start').removeClass('active')
+            $('#pause').addClass('active')
+            timerPaused = false; // 恢復計時器
+            startTime = ((startTime / 1000) * 1000) + (((Date.now() - pausedTime) / 1000) * 1000)
+            startTimer();  // 重新啟動計時器
+            // 其他操作，例如觸發開始 API 端點
+            $.get("/api/start/M300", function (data) {
+                console.log(data);
+            });
+        }
     });
 
     $('#pause').click(function () {
-        timerPaused = true;
-        clearInterval(intervalId);  // 清除計時器間隔
-        pausedTime = Date.now() - (startTime + pausedTime); // 計算暫停的時間
-        // 其他操作，例如觸發暫停 API 端點
-        $.get("/api/start/M301", function (data) {
-            console.log(data);
-        });
+        if ($('#pause').hasClass('active')) {
+            $('#pause').removeClass('active')
+            $('#start').addClass('active')
+            timerPaused = true;
+            clearInterval(intervalId);  // 清除計時器間隔
+            pausedTime = Date.now(); // 計算暫停的時間
+            // 其他操作，例如觸發暫停 API 端點
+            $.get("/api/start/M301", function (data) {
+                console.log(data);
+            });
+        }
     });
 }
 
 function startTimer() {
-    let startTime = Date.now();
+
     intervalId = setInterval(async function () {
         if (!timerPaused) {
-            const currentTime = Date.now();
-            const elapsedTime = currentTime - startTime;
-
-            const seconds = Math.floor((elapsedTime / 1000) % 60);
-            const minutes = Math.floor((elapsedTime / 1000 / 60) % 60);
-            const hours = Math.floor((elapsedTime / 1000 / 60 / 60) % 24);
-
-            const timerElement = document.getElementById('timer');
+            let currentTime = Date.now();
+            let elapsedTime = currentTime - startTime;
+            let seconds = Math.floor((elapsedTime / 1000) % 60);
+            let minutes = Math.floor((elapsedTime / 1000 / 60) % 60);
+            let hours = Math.floor((elapsedTime / 1000 / 60 / 60) % 24);
+            let timerElement = document.getElementById('timer');
             timerElement.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         }
         $.get("/api/start/process", function (data) {
@@ -113,8 +122,11 @@ function startTimer() {
                 console.log(data)
             }
             if (processStatus === 20) {
-
-                window.location.href = "/report";
+                let id = getUrlParameter('id')
+                if (id) {
+                    window.location.href = "/report?id=" + id;
+                }
+                window.location.href = "/report?id=";
             }
         });
         flashNumber();

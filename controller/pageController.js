@@ -15,6 +15,14 @@ let secondPage = async (req, res) => {
         res.redirect('/');
     }
 }
+//第二層檢查
+let secondCheckPage = async (req, res) => {
+    if (req.query.id == 'leukemia' || req.query.id == 'mpn' || req.query.id == 'tp53') {
+        res.render('secondCheckPage', { id: req.query.id })
+    } else {
+        res.redirect('/');
+    }
+}
 //第三層(勾選層)
 let thirdPage = async (req, res) => {
     res.render('thirdPage')
@@ -48,6 +56,7 @@ module.exports = {
     loadingPage: loadingPage,
     firstPage: firstPage,
     secondPage: secondPage,
+    secondCheckPage: secondCheckPage,
     thirdPage: thirdPage,
     forthPage: forthPage,
     fifthPage: fifthPage,
